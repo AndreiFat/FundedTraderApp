@@ -1,5 +1,6 @@
 body {
     font-family: 'Koulen', cursive;
+    background: #F9F9F9;
 }
 
 h2 {
@@ -7,7 +8,7 @@ h2 {
 }
 
 .fs-1, .fs-2, .fs-3, .fs-4, .fs-5, .fs-6 {
-    font-family: Futura, Trebuchet MS, Arial, sans-serif;
+    font-family: 'Futura PT', sans-serif;
 }
 
 .bg-image {
@@ -23,6 +24,10 @@ h2 {
 
 .border-primary {
     border-color: #68ACB3 !important;
+}
+
+.border-light {
+    border-color: rgba(104, 172, 179, 0.5) !important;
 }
 
 .border-primary:focus {
@@ -59,4 +64,10 @@ h2 {
     border-color: #77c4cc;
     outline: 0;
     box-shadow: 0 0 0 .25rem rgba(104, 172, 179, 0.3);
+}
+
+.btn-danger {
+    color: #DD5757;
+    background-color: rgba(221, 87, 87, 0.15);
+    border: 0;
 }
