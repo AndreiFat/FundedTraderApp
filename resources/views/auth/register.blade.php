@@ -4,20 +4,18 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-xl-6">
-                <div class="row h-25">
-                    <div class="col"></div>
-                </div>
                 <div class="row justify-content-center">
                     <div class="col-md-6">
                         <h1 class="text-center">{{ __('Register') }}</h1>
-                        <div class="card border-0">
+                        <div class="card border-0 bg-transparent">
                             <div class="card-body">
                                 <form method="POST" action="{{ route('register') }}">
                                     @csrf
 
                                     <div class="mb-3">
+                                        <i class="fa-solid fa-lg fa-user me-1"></i>
                                         <label for="name"
-                                               class="fs-5 mb-2">{{ __('Name') }}</label>
+                                               class="fs-5 mb-2 fw-medium">{{ __('Name') }}</label>
 
                                         <div class="">
                                             <input id="name" type="text"
@@ -35,8 +33,9 @@
                                     </div>
 
                                     <div class="mb-3">
+                                        <i class="fa-solid fa-lg fa-user-tie me-1"></i>
                                         <label for="name"
-                                               class="fs-5 mb-2">{{ __('Occupation') }}</label>
+                                               class="fs-5 mb-2 fw-medium">{{ __('Occupation') }}</label>
 
                                         <div class="">
                                             <input id="name" type="text"
@@ -55,8 +54,9 @@
                                     </div>
 
                                     <div class="mb-3">
+                                        <i class="fa-solid fa-lg fa-envelope me-1 "></i>
                                         <label for="email"
-                                               class="fs-5 mb-2">{{ __('Email Address') }}</label>
+                                               class="fs-5 mb-2 fw-medium">{{ __('Email Address') }}</label>
 
                                         <div class="">
                                             <input id="email" type="email"
@@ -74,8 +74,9 @@
                                     </div>
 
                                     <div class="mb-3">
+                                        <i class="fa-solid fa-lg me-1 fa-lock"></i>
                                         <label for="password"
-                                               class="fs-5 mb-2">{{ __('Password') }}</label>
+                                               class="fs-5 mb-2 fw-medium">{{ __('Password') }}</label>
 
                                         <div class="">
                                             <input id="password" type="password"
@@ -93,8 +94,9 @@
                                     </div>
 
                                     <div class="mb-4">
+                                        <i class="fa-solid fa-lg me-1 fa-lock"></i>
                                         <label for="password-confirm"
-                                               class="fs-5 mb-2">{{ __('Confirm Password') }}</label>
+                                               class="fs-5 mb-2 fw-medium">{{ __('Confirm Password') }}</label>
 
                                         <div class="">
                                             <input id="password-confirm" type="password"
