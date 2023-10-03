@@ -6,6 +6,50 @@ h2 {
     font-size: 40px;
 }
 
-.fs-2 {
-    font-family: Roboto, Trebuchet MS, Arial, sans-serif !important;
+.fs-1, .fs-2, .fs-3, .fs-4, .fs-5, .fs-6 {
+    font-family: Futura, Trebuchet MS, Arial, sans-serif;
+}
+
+.bg-image {
+    position: absolute;
+    background-image: url("../assets/tradeBackground.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh !important;
+    max-height: 102vh !important;
+    width: 100%;
+    transform: translate(0%, -6.65%);
+}
+
+.border-primary {
+    border-color: #68ACB3 !important;
+}
+
+.border-primary:focus {
+    box-shadow: 0 0 0 .25rem rgba(104, 172, 179, 0.3);
+}
+
+.btn-primary {
+    color: white;
+    background-color: #68ACB3 !important;
+    border-color: #77c4cc !important;
+}
+
+.btn-primary:hover {
+    color: white;
+    background-color: #63a3a9 !important;
+    border-color: #77c4cc !important;
+}
+
+.btn-link, .text-primary {
+    color: #68ACB3 !important;
+}
+
+.btn-link:hover {
+    color: #63a3a9;
+}
+
+.login-container {
+    height: 85vh;
+
 }

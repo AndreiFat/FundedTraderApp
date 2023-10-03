@@ -20,12 +20,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet">
+    <link href=" https://cdn.jsdelivr.net/npm/futura-font@1.0.0/styles.min.css " rel="stylesheet">
 
     {{--    CSS IMPORT--}}
     <link rel="stylesheet" href="{{asset('/css/app.css')}}">
 </head>
 <body>
 <div id="app">
+
     <nav class="navbar navbar-expand-md navbar-light bg-transparent">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ url('/') }}">
@@ -50,13 +52,15 @@
                     @guest
                         @if (Route::has('login'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link fs-6 me-3 text-dark-emphasis"
+                                   href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                         @endif
 
                         @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <a class="nav-link fs-6 text-dark-emphasis"
+                                   href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
                         @endif
                     @else
