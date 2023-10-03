@@ -45,6 +45,13 @@ body {
     color: #63a3a9;
 }
 
-.login-container {
-    height: 85vh;
+.form-check-input:checked {
+    background-color: #63a3a9;
+    border-color: #63a3a9;
+}
+
+.form-check-input:focus {
+    border-color: #77c4cc;
+    outline: 0;
+    box-shadow: 0 0 0 .25rem rgba(104, 172, 179, 0.3);
 }
