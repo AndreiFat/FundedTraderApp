@@ -2,6 +2,10 @@ body {
     font-family: 'Koulen', cursive;
 }
 
+h2 {
+    font-size: 40px;
+}
+
 .fs-1, .fs-2, .fs-3, .fs-4, .fs-5, .fs-6 {
     font-family: Futura, Trebuchet MS, Arial, sans-serif;
 }
@@ -47,4 +51,5 @@ body {
 
 .login-container {
     height: 85vh;
+
 }
