@@ -1,3 +1,11 @@
 body {
     font-family: 'Koulen', cursive;
 }
+
+h2 {
+    font-size: 40px;
+}
+
+.fs-2 {
+    font-family: Roboto, Trebuchet MS, Arial, sans-serif !important;
+}
