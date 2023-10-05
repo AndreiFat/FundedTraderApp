@@ -28,7 +28,7 @@
 </head>
 <body>
 
-<div class="container position-relative" style="height: 100vh; overflow: hidden">
+<div class="container">
     <ul class="background z-n1">
         <li></li>
         <li></li>
@@ -67,7 +67,7 @@
         @endif
     </div>
 
-    <div class="row pb-2 pt-0 justify-content-center position-absolute top-50 start-50 translate-middle w-100 px-3">
+    <div class="row pb-2 pt-0 justify-content-center">
         <a class="navbar-brand text-center" href="{{ url('/') }}">
             <img src="{{asset('/assets/verticalLogo.png')}}" height="250px" alt="">
         </a>
