@@ -21,15 +21,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/futura-pt" rel="stylesheet">
-    
+
     {{--    CSS IMPORT--}}
     <link rel="stylesheet" href="{{asset('/css/app.css')}}">
+    @stack('home-css')
 </head>
 <body>
 <div id="app">
 
-    <nav class="navbar navbar-expand-md navbar-light bg-transparent">
-        <div class="container-fluid">
+    <nav class="navbar navbar-expand-md
+    @if(request()->route()->getName() === 'home' || request()->route()->getName() === 'account_settings')
+        navbar-light bg-white border-bottom
+    @else
+        navbar-light bg-transparent
+    @endif">
+        <div class="
+    @if(request()->route()->getName() === 'home' || request()->route()->getName() === 'account_settings')
+        container
+    @else
+        container-fluid
+    @endif
+">
             <a class="navbar-brand" href="{{ url('/') }}">
                 {{--                {{ config('app.name', 'Laravel') }}--}}
                 <img src="{{asset('/assets/Logo.png')}}" height="64x" alt="">
@@ -102,5 +114,7 @@
 
 {{--Font Awesome ICONS--}}
 <script src="https://kit.fontawesome.com/8d27e204d1.js" crossorigin="anonymous"></script>
+
+@stack('vue-app')
 </body>
 </html>
