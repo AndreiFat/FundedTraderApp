@@ -44,7 +44,7 @@
 ">
             <a class="navbar-brand" href="{{ url('/') }}">
                 {{--                {{ config('app.name', 'Laravel') }}--}}
-                <img src="{{asset('/assets/Logo.png')}}" height="64x" alt="">
+                <img src="{{asset('/assets/Logo.png')}}" height="64px" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"

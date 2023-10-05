@@ -27,12 +27,15 @@
 
                                 <div class="row">
                                     <div class="col">
-                                        <form action="">
+                                        <form method="POST" action="{{route('updateUser')}}">
+                                            @csrf
+                                            @method('PUT')
                                             <div class="my-3 ">
                                                 <i class="fa-solid fa-lg fa-envelope me-1 "></i>
                                                 <label for="emailInput"
                                                        class="form-label fs-5 fw-medium">Email</label>
-                                                <input type="email" class="form-control fs-5 border-2 border-primary"
+                                                <input name="email" type="email"
+                                                       class="form-control fs-5 border-2 border-primary"
                                                        id="emailInput"
                                                        aria-describedby="emailHelp" value="{{Auth::user()->email}}">
                                             </div>
@@ -40,7 +43,8 @@
                                             <div class="my-3">
                                                 <i class="fa-solid fa-lg fa-user me-1"></i>
                                                 <label for="nameInput" class="form-label fs-5 fw-medium">Name</label>
-                                                <input type="text" class="form-control fs-5 border-2 border-primary"
+                                                <input name="name" type="text"
+                                                       class="form-control fs-5 border-2 border-primary"
                                                        id="nameInput"
                                                        aria-describedby="emailHelp" value="{{Auth::user()->name}}">
                                             </div>
@@ -49,7 +53,8 @@
                                                 <i class="fa-solid fa-lg fa-user-tie me-1"></i>
                                                 <label for="occupationInput"
                                                        class="form-label fs-5 fw-medium">Occupation</label>
-                                                <input type="text" class="form-control fs-5 border-2 border-primary"
+                                                <input name="occupation" type="text"
+                                                       class="form-control fs-5 border-2 border-primary"
                                                        id="occupationInput"
                                                        aria-describedby="emailHelp"
                                                        value="{{Auth::user()->occupation}}">
