@@ -1,0 +1,74 @@
+.bg-secondary {
+    background-color: rgba(240, 158, 0, 0.15) !important;
+    border: 0;
+}
+
+.text-secondary {
+    color: #F09E00 !important;
+}
+
+.form-control:focus {
+    color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
+    border-color: rgba(240, 158, 0, 0.2);
+    outline: 0;
+    box-shadow: 0 0 0 .25rem rgba(240, 158, 0, 0.1);
+    padding-right: 64px;
+}
+
+.form-control {
+    padding-right: 64px;
+}
+
+.currency-suffix {
+    position: absolute;
+    right: 10px; /* Adjust as needed for spacing */
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Futura PT', sans-serif;
+    color: #F09E00 !important;
+    font-weight: 500;
+    font-size: 24px;
+}
+
+.currency-suffix-green {
+    position: absolute;
+    right: 10px; /* Adjust as needed for spacing */
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Futura PT', sans-serif;
+    color: #68acb3 !important;
+    font-weight: 500;
+    font-size: 24px;
+}
+
+.currency-suffix-red {
+    position: absolute;
+    right: 10px; /* Adjust as needed for spacing */
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Futura PT', sans-serif;
+    color: #DD5757 !important;
+    font-weight: 500;
+    font-size: 24px;
+}
+
+
+#loss-limit::placeholder {
+    color: #F09E00 !important;
+}
+
+.bg-danger {
+    color: #DD5757;
+    background-color: rgba(221, 87, 87, 0.15) !important;
+}
+
+.bg-success {
+    color: #68ACB3;
+    background-color: rgba(104, 172, 179, 0.15) !important;
+}
+
+.py-15 {
+    padding-bottom: 0.38rem !important;
+    padding-top: 0.38rem !important;
+}
