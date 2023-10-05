@@ -6,9 +6,9 @@
             <div class="col-xl-6">
                 <div class="row justify-content-center">
                     <div class="col-md-6">
-                        <h1 class="text-center">{{ __('Register') }}</h1>
+                        <h1 class="text-center mb-0">{{ __('Register') }}</h1>
                         <div class="card border-0 bg-transparent">
-                            <div class="card-body">
+                            <div class="card-body pt-0">
                                 <form method="POST" action="{{ route('register') }}">
                                     @csrf
 
@@ -19,7 +19,7 @@
 
                                         <div class="">
                                             <input id="name" type="text"
-                                                   class="fs-6 p-3 border-2 border-primary form-control @error('name') is-invalid @enderror"
+                                                   class="fs-6  border-2 border-primary form-control @error('name') is-invalid @enderror"
                                                    name="name"
                                                    value="{{ old('name') }}" required autocomplete="name" autofocus
                                                    placeholder="John Doe">
@@ -39,7 +39,7 @@
 
                                         <div class="">
                                             <input id="name" type="text"
-                                                   class="fs-6 p-3 border-2 border-primary form-control @error('occupation') is-invalid @enderror"
+                                                   class="fs-6 border-2 border-primary form-control @error('occupation') is-invalid @enderror"
                                                    name="occupation"
                                                    value="{{ old('occupation') }}" required autocomplete="occupation"
                                                    placeholder="Student"
@@ -60,7 +60,7 @@
 
                                         <div class="">
                                             <input id="email" type="email"
-                                                   class="fs-6 p-3 border-2 border-primary form-control @error('email') is-invalid @enderror"
+                                                   class="fs-6 border-2 border-primary form-control @error('email') is-invalid @enderror"
                                                    name="email"
                                                    value="{{ old('email') }}" required autocomplete="email"
                                                    placeholder="email@domain.com">
@@ -80,7 +80,7 @@
 
                                         <div class="">
                                             <input id="password" type="password"
-                                                   class="fs-6 p-3 border-2 border-primary form-control @error('password') is-invalid @enderror"
+                                                   class="fs-6 border-2 border-primary form-control @error('password') is-invalid @enderror"
                                                    name="password"
                                                    required autocomplete="new-password"
                                                    placeholder="Your Password Here">
@@ -100,7 +100,7 @@
 
                                         <div class="">
                                             <input id="password-confirm" type="password"
-                                                   class="fs-6 p-3 border-2 border-primary form-control"
+                                                   class="fs-6 border-2 border-primary form-control"
                                                    name="password_confirmation" required autocomplete="new-password"
                                                    placeholder="Confirm Your Password">
                                         </div>
@@ -108,7 +108,7 @@
 
                                     <div class="row mb-0">
                                         <div class="col">
-                                            <button type="submit" class="fs-5 py-2 w-100 btn btn-primary">
+                                            <button type="submit" class="fs-5 w-100 btn btn-primary">
                                                 {{ __('Register') }}
                                             </button>
                                         </div>
@@ -117,7 +117,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row py-5 justify-content-center">
+                    <div class="row pt-2 justify-content-center">
                         <div class="col-xl-6">
                             <p class="fs-6 text-center">Already have an account? <a href="{{ route('login') }}"
                                                                                     class="d-block d-md-inline text-primary fw-semibold text-decoration-underline">Login
