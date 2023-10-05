@@ -19,7 +19,7 @@
 
                                         <div class="">
                                             <input id="email" type="email"
-                                                   class="fs-6 p-3 border-2 border-primary form-control @error('email') is-invalid @enderror"
+                                                   class="fs-6 p-2 border-2 border-primary form-control @error('email') is-invalid @enderror"
                                                    name="email"
                                                    value="{{ old('email') }}" required autocomplete="email"
                                                    autofocus
@@ -40,7 +40,7 @@
 
                                         <div class="">
                                             <input id="password" type="password"
-                                                   class="fs-6 p-3 border-2 border-primary form-control @error('password') is-invalid @enderror"
+                                                   class="fs-6 p-2 border-2 border-primary form-control @error('password') is-invalid @enderror"
                                                    name="password"
                                                    required autocomplete="current-password"
                                                    placeholder="Type your password">

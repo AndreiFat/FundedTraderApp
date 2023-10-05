@@ -21,7 +21,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/futura-pt" rel="stylesheet">
-    
+
     {{--    CSS IMPORT--}}
     <link rel="stylesheet" href="{{asset('/css/app.css')}}">
 </head>
@@ -32,7 +32,7 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ url('/') }}">
                 {{--                {{ config('app.name', 'Laravel') }}--}}
-                <img src="{{asset('/assets/Logo.png')}}" height="64x" alt="">
+                <img src="{{asset('/assets/Logo.png')}}" height="64px" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
