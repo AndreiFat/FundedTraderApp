@@ -28,7 +28,7 @@
 </head>
 <body>
 
-<div class="container">
+<div class="container position-relative" style="height: 100vh; overflow: hidden">
     <ul class="background z-n1">
         <li></li>
         <li></li>
@@ -50,32 +50,28 @@
         <li></li>
         <li></li>
     </ul>
-    <div class="my-3 d-flex justify-content-between">
-        <div class="position-relative start-50 translate-middle-x">
-            <a class="navbar-brand" href="{{ url('/') }}">
-                <img src="{{asset('/assets/verticalLogo.png')}}" height="130px" alt="">
-            </a>
-        </div>
-        <div class="position-relative top-0 end-0">
-            @if (Route::has('login'))
-                @auth
-                    <a href="{{ url('/home') }}"
-                       class="fs-5 text-decoration-none text-dark-emphasis nav-buttons">Dashboard</a>
-                @else
-                    <a href="{{ route('login') }}"
-                       class="fs-5 text-decoration-none text-dark-emphasis me-3 nav-buttons">Log in</a>
+    <div class="my-3 d-flex justify-content-end">
+        @if (Route::has('login'))
+            @auth
+                <a href="{{ url('/home') }}"
+                   class="fs-5 text-decoration-none text-dark-emphasis nav-buttons">Dashboard</a>
+            @else
+                <a href="{{ route('login') }}"
+                   class="fs-5 text-decoration-none text-dark-emphasis me-3 nav-buttons">Log in</a>
 
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}"
-                           class="fs-5 text-decoration-none text-dark-emphasis nav-buttons">Register</a>
-                    @endif
-                @endauth
-            @endif
-        </div>
+                @if (Route::has('register'))
+                    <a href="{{ route('register') }}"
+                       class="fs-5 text-decoration-none text-dark-emphasis nav-buttons">Register</a>
+                @endif
+            @endauth
+        @endif
     </div>
 
-    <div class="row pb-2 pt-0 justify-content-center align-items-center">
-        <div class="col-12 text-center">
+    <div class="row pb-2 pt-0 justify-content-center position-absolute top-50 start-50 translate-middle w-100 px-3">
+        <a class="navbar-brand text-center" href="{{ url('/') }}">
+            <img src="{{asset('/assets/verticalLogo.png')}}" height="250px" alt="">
+        </a>
+        <div class="col text-center">
             <div class="centered-div">
                 <p class="fs-1 fw-bold principle lh-sm text-center">The best way to organize your tradings.</p>
                 <p class="fs-2 text-muted lh-sm text-center m-0">We know... Tradings may be difficult, let's get
