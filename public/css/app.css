@@ -19,15 +19,37 @@ h2 {
     font-family: 'Futura PT', sans-serif;
 }
 
-.bg-image {
-    position: absolute;
-    background-image: url("../assets/tradeBackground.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh !important;
-    max-height: 102vh !important;
-    width: 100%;
-    transform: translate(0%, -6.65%);
+
+@media (min-width: 576px) {
+    .bg-image {
+        background-image: url("../assets/tradeBackground.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 873px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .bg-image {
+        background-image: url("../assets/tradeBackground.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 1500px;
+    }
+}
+
+@media (max-width: 576px) {
+    h2 {
+        font-size: 30px;
+    }
+
+    .fa-2xl {
+        font-size: 24px !important;
+    }
+
+    .fs-5 {
+        font-size: 16px;
+    }
 }
 
 .border-primary {
@@ -297,4 +319,9 @@ h2 {
     height: 131px;
     bottom: -131px;
     animation-delay: 87s;
+}
+
+.bg-success {
+    color: #68ACB3;
+    background-color: rgba(104, 172, 179, 0.15) !important;
 }

@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,8 +20,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::middleware(['web', 'auth'])->group(function () {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/account_settings', [\App\Http\Controllers\AccountSettingsController::class, 'index'])->name('account_settings');
+    Route::get('/account_settings', [\App\Http\Controllers\AccountSettingsController::class, 'index'])->name('account_settings');
 
-Route::put('/account_settings', [\App\Http\Controllers\AccountSettingsController::class, 'updateUser'])->name('updateUser');
+    Route::put('/account_settings', [\App\Http\Controllers\AccountSettingsController::class, 'updateUser'])->name('updateUser');
+
+});
+

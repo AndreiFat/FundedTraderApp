@@ -2,10 +2,10 @@
 
 @section('content')
     <div class="container-fluid">
-        <div class="row">
+        <div class="row justify-content-between">
             <div class="col-xl-6">
                 <div class="row justify-content-center">
-                    <div class="col-md-6 my-5 py-5">
+                    <div class="col-md-6  my-3 py-3 my-md-5 py-md-5">
                         <h1 class="text-center">{{ __('Login') }}</h1>
                         <div class="card border-0 bg-transparent">
                             <div class="card-body">
@@ -95,10 +95,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-6 p-0 m-0 h-100">
-                <div class="d-none d-xl-flex position-relative z-n1">
-                    <div class="bg-image"></div>
-                </div>
+            <div class="d-none d-xl-inline-block col-xl-6 p-0 bg-image">
             </div>
         </div>
 
