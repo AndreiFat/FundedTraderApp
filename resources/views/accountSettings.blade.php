@@ -2,18 +2,18 @@
 
 @section('content')
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center my-4">
             <div class="col-md-6">
                 <div class="row">
                     <div class="col">
-                        <div class="card border-light p-3">
+                        <div class="card border-light p-0 p-md-3">
                             <div class="card-body">
                                 <div class="d-flex">
                                     <a href="{{route('home')}}"
                                        class="d-inline-block text-decoration-none text-dark my-auto">
-                                        <i class="fa-solid fa-2xl fa-arrow-left me-2"></i>
+                                        <i class="fa-solid fa-2xl fa-arrow-left me-2 my-auto"></i>
                                     </a>
-                                    <h2 class="d-inline-block mb-0 ms-2">Account Settings </h2>
+                                    <h2 class="d-inline-block mb-0 ms-2 my-auto">Account Settings </h2>
                                     <div class="d-inline-flex ms-auto">
                                         <a onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"

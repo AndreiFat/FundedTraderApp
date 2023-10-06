@@ -30,18 +30,14 @@
 <div id="app">
 
     <nav class="navbar navbar-expand-md
-    @if(request()->route()->getName() === 'home' || request()->route()->getName() === 'account_settings')
-        navbar-light bg-white border-bottom
-    @else
-        navbar-light bg-transparent
-    @endif">
+        navbar-light bg-white border-bottom">
         <div class="
-    @if(request()->route()->getName() === 'home' || request()->route()->getName() === 'account_settings')
-        container
-    @else
-        container-fluid
+         @if(request()->route()->getName() === 'home' || request()->route()->getName() === 'account_settings')
+             container
+         @else
+             container-fluid
     @endif
-">
+    ">
             <a class="navbar-brand" href="{{ url('/') }}">
                 {{--                {{ config('app.name', 'Laravel') }}--}}
                 <img src="{{asset('/assets/Logo.png')}}" height="64px" alt="">
@@ -77,13 +73,16 @@
                         @endif
                     @else
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                            <a id="navbarDropdown"
+                               class="nav-link dropdown-toggle fs-5 align-middle text-primary bg-success px-4 rounded-3"
+                               href="#"
+                               role="button"
                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                <a class="dropdown-item fs-6" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
@@ -93,7 +92,7 @@
                                     @csrf
                                 </form>
 
-                                <a class="dropdown-item"
+                                <a class="dropdown-item fs-6"
                                    href="{{ route('account_settings') }}"> {{ __('Account Settings') }}</a>
                             </div>
                         </li>
