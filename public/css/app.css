@@ -29,12 +29,21 @@ h2 {
     }
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 3840px) {
     .bg-image {
         background-image: url("../assets/tradeBackground.jpg");
         background-repeat: no-repeat;
         background-size: cover;
-        height: 1500px;
+        height: 2000px;
+    }
+}
+
+@media (min-width: 1920px) {
+    .bg-image {
+        background-image: url("../assets/tradeBackground.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 1000px;
     }
 }
 
@@ -323,4 +332,8 @@ h2 {
 
 .bg-success-dropdown {
     background-color: rgba(0, 57, 143, 0.1) !important;
+}
+
+.dropdown-item:active {
+    background-color: var(--main-bg-color) !important;
 }
