@@ -24,11 +24,11 @@
 
     {{--    CSS IMPORT--}}
     <link rel="stylesheet" href="{{asset('/css/app.css')}}">
-
+    <link rel="stylesheet" href="{{asset('/css/welcome.css')}}">
 </head>
 <body>
 
-<div class="container ">
+<div class="container">
     <ul class="background z-n1">
         <li></li>
         <li></li>
@@ -68,12 +68,12 @@
     </div>
 
     <div class="row pb-2 pt-0 justify-content-center">
-        <a class="navbar-brand text-center" href="{{ url('/') }}">
+        <a class="navbar-brand text-center my-4 mb-sm-0" href="{{ url('/') }}">
             <img src="{{asset('/assets/verticalLogo.png')}}" height="150px" alt="">
         </a>
         <div class="col text-center">
             <div class="centered-div">
-                <p class="fs-2 fw-bold principle lh-sm text-center">Pass and Keep Your Funded Trader Accounts</p>
+                <p class="fs-1 fw-bold principle lh-sm text-center">Pass and Keep Your Funded Trader Accounts</p>
                 <p class="fs-2 text-muted lh-sm text-center m-0">Money Management is Your Key To Success and
                     Consistency!</p>
             </div>
@@ -83,16 +83,16 @@
                        href="{{ route('register') }}">{{ __('Join us') }}</a>
                 </div>
             </div>
-            <div class="row p-4 maincard border-0 rounded-3">
-                <div class="col-4 text-center">
+            <div class="row p-4 maincard border-0 rounded-3 mx-4 mx-sm-0">
+                <div class="col-md-4 mb-3 mb-sm-0 text-center">
                     <p class="fs-1 m-0 cardNumbers fw-medium" id="happyTraders">5,000</p>
                     <p class="fs-4 pt-0 m-0" style="color: var(--maincard-text)">Happy Traders</p>
                 </div>
-                <div class="col-4 text-center">
+                <div class="col-md-4 mb-3 mb-sm-0 text-center">
                     <p class="fs-1 m-0 cardNumbers fw-medium" id="precision">100%</p>
                     <p class="fs-4 pt-0 m-0" style="color: var(--maincard-text)">Precision</p>
                 </div>
-                <div class="col-4 text-center">
+                <div class="col-md-4 mb-3 mb-sm-0 text-center">
                     <p class="fs-1 m-0 cardNumbers fw-medium" id="savings">60%</p>
                     <p class="fs-4 pt-0 m-0" style="color: var(--maincard-text)">Savings</p>
                 </div>
@@ -123,8 +123,8 @@
     const savings = document.getElementById('savings');
 
     animateCount(happyTraders, 5, 500, false);
-    animateCount(precision, 100, 500, true);
-    animateCount(savings, 60, 500, true);
+    animateCount(precision, 100, 350, true);
+    animateCount(savings, 60, 350, true);
 </script>
 
 

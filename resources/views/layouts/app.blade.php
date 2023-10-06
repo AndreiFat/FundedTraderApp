@@ -24,6 +24,7 @@
 
     {{--    CSS IMPORT--}}
     <link rel="stylesheet" href="{{asset('/css/app.css')}}">
+
     @stack('home-css')
 </head>
 <body>
