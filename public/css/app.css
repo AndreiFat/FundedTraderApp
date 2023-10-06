@@ -321,7 +321,6 @@ h2 {
     animation-delay: 87s;
 }
 
-.bg-success {
-    color: #68ACB3;
-    background-color: rgba(104, 172, 179, 0.15) !important;
+.bg-success-dropdown {
+    background-color: rgba(0, 57, 143, 0.1) !important;
 }

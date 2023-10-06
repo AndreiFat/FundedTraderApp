@@ -75,7 +75,7 @@
                     @else
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown"
-                               class="nav-link dropdown-toggle fs-5 align-middle text-primary bg-success px-4 rounded-3"
+                               class="nav-link dropdown-toggle fs-5 align-middle text-primary bg-success-dropdown px-4 rounded-3"
                                href="#"
                                role="button"
                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
