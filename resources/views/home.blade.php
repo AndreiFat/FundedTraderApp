@@ -75,6 +75,11 @@
                                     {(loss_per_trade)}
                                     USD</p>
                             </div>
+                            <div class="d-flex mb-2 ">
+                                <p class="my-auto fs-5">Risk Per Trade</p>
+                                <p class="fs-5 mb-0 fw-semibold d-block ms-auto bg-danger py-2 px-3 rounded-3">
+                                    {(risk_per_trade)} %</p>
+                            </div>
                             <div class="d-flex mb-2">
                                 <p class="my-auto fs-5">Profit Per Trade</p>
                                 <p class="fs-5 mb-0 fw-semibold d-block ms-auto bg-success py-2 px-3 rounded-3">
@@ -336,12 +341,12 @@
                 createApp({
                     data() {
                         return {
-                            loss_limit: 0.00,
+                            loss_limit: 0,
 
-                            quantity: 0.00,
-                            stop_loss: 0.00,
-                            tick_pip_value: 0.00,
-                            profit_target: 0.00,
+                            quantity: 0,
+                            stop_loss: 0,
+                            tick_pip_value: 0,
+                            profit_target: 0,
 
                             wins: 0,
                             loses: 0,
@@ -356,6 +361,7 @@
                             tick_pip_value_show: 0,
                             stop_loss_value: 0,
                             take_profit: 0,
+                            risk_per_trade: 0,
                             loss_per_trade: 0,
                             profit_per_trade: 0,
                             total_trades: 0,
@@ -365,7 +371,7 @@
 
                             // Trades
                             win_rate: 0,
-                            number_of_trades: 0,
+                            number_of_trades: '0',
 
                             // Totals
                             wins_value: 0,
@@ -414,23 +420,27 @@
                             this.loss_per_trade = this.quantity * (-this.tick_pip_value) * this.stop_loss - (-this.quantity * this.commissions);
                         },
                         calculateRisk_Per_Trade() {
-                            let value = this.loss_limit / this.loss_per_trade;
                             //console.log(value)
-                            // this.risk_per_trade = value
+                            this.risk_per_trade = this.formatNumberWithParentheses(this.loss_limit / this.loss_per_trade)
                         },
+                        formatNumberWithParentheses(number) {
+                            // Split the number into integer and decimal parts
+                            const [integerPart, decimalPart] = number.toString().split('.');
+
+                            // Format the integer part by adding commas for thousands
+                            const formattedIntegerPart = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+                            // Combine the formatted integer part with the decimal part enclosed in parentheses
+                            return decimalPart ? `${formattedIntegerPart},(${decimalPart})` : formattedIntegerPart;
+                        }
+                        ,
                         calculateProfit_Per_Trade() {
                             this.profit_per_trade = this.quantity * this.tick_pip_value * this.profit_target - (this.quantity * this.commissions)
                         },
                         calculateNumber_of_Trades() {
                             console.log("WINS")
                             console.log(this.wins)
-                            if (isNaN(this.wins)) {
-                                this.number_of_trades = parseFloat(this.loses)
-                            } else if (isNaN(this.loses)) {
-                                this.number_of_trades = parseInt(this.wins)
-                            } else {
-                                this.number_of_trades = parseFloat(this.wins) + parseFloat(this.loses)
-                            }
+                            this.number_of_trades = parseInt(this.wins) + parseInt(this.loses);
                         },
                         calculateTotal_Commissions() {
                             this.total_commissions = this.number_of_trades * parseInt(this.commissions)
@@ -448,9 +458,8 @@
                             if (isNaN(this.wins)) {
                                 this.win_rate = 0;
                             } else {
-                                (((this.wins / this.number_of_trades) * 100)).toFixed(0)
+                                this.win_rate = (((this.wins / this.number_of_trades) * 100)).toFixed(0)
                             }
-
                         },
                         calculateNet_Profit_Loss() {
                             this.net_profit_loss = parseFloat(this.wins_value) + parseFloat(this.loses_value) - (this.number_of_trades)
@@ -459,22 +468,22 @@
                             this.max_loses_limit = this.loss_limit / (-this.loss_per_trade)
                         },
                         calculateRolling_Loss() {
-                            const sanitizedString = this.loss_limit.replace(/[.,]/g, '');
-                            const floatValue = parseFloat(sanitizedString);
-                            if (!isNaN(floatValue)) {
-                                // Convert the float back to a string with a specific number of decimal places
-                                floatValue.toFixed(3); // Adjust the number of decimal places as needed
-                            }
-                            let value = floatValue + this.net_profit_loss
+                            // const sanitizedString = this.loss_limit.replace(/[.,]/g, '');
+                            // const floatValue = parseFloat(sanitizedString);
+                            // if (!isNaN(floatValue)) {
+                            //     // Convert the float back to a string with a specific number of decimal places
+                            //     floatValue.toFixed(3); // Adjust the number of decimal places as needed
+                            // }
+                            let value = parseInt(this.loss_limit) + this.net_profit_loss
                             console.log(this.net_profit_loss)
-                            this.rolling_loss_limit = value.toLocaleString()
+                            this.rolling_loss_limit = value
                             console.log(this.rolling_loss_limit)
                         }
                     },
                     watch: {
                         loss_limit: ['calculateRolling_Loss', 'calculateMax_Loses_Limit', 'calculateRisk_Per_Trade'],
 
-                        quantity: ['calculateLoss_Per_Trade', 'calculateProfit_Per_Trade', 'calculateWins_Value', 'calculateLoses_Value'],
+                        quantity: ['calculateNumber_of_Trades', 'calculateLoss_Per_Trade', 'calculateProfit_Per_Trade', 'calculateWins_Value', 'calculateLoses_Value'],
                         stop_loss: ['calculateLoss_Per_Trade', 'calculateLoses_Value', 'calculateR'],
                         tick_pip_value: ['calculateLoss_Per_Trade', 'calculateProfit_Per_Trade', 'calculateLoses_Value', 'calculateWins_Value'],
                         profit_target: ['calculateProfit_Per_Trade', 'calculateR', 'calculateWins_Value'],
@@ -487,8 +496,9 @@
                         wins_value: ['calculateNet_Profit_Loss'],
                         loses_value: ['calculateNet_Profit_Loss'],
 
-                        number_of_trades: ['calculateWin_Rate', 'calculateTotal_Commissions', 'calculateNet_Profit_Loss']
+                        number_of_trades: ['calculateNumber_of_Trades', 'calculateWin_Rate', 'calculateTotal_Commissions', 'calculateNet_Profit_Loss']
                     },
+                    deep: true,
                     delimiters: ['{(', ')}']
                 }).mount('#vue-app')
             </script>

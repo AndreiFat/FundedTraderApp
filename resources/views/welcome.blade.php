@@ -28,7 +28,7 @@
 </head>
 <body>
 
-<div class="container">
+<div class="container ">
     <ul class="background z-n1">
         <li></li>
         <li></li>
@@ -69,14 +69,13 @@
 
     <div class="row pb-2 pt-0 justify-content-center">
         <a class="navbar-brand text-center" href="{{ url('/') }}">
-            <img src="{{asset('/assets/verticalLogo.png')}}" height="250px" alt="">
+            <img src="{{asset('/assets/verticalLogo.png')}}" height="150px" alt="">
         </a>
         <div class="col text-center">
             <div class="centered-div">
-                <p class="fs-1 fw-bold principle lh-sm text-center">The best way to organize your tradings.</p>
-                <p class="fs-2 text-muted lh-sm text-center m-0">We know... Tradings may be difficult, let's get
-                    you
-                    started in this way.</p>
+                <p class="fs-2 fw-bold principle lh-sm text-center">Pass and Keep Your Funded Trader Accounts</p>
+                <p class="fs-2 text-muted lh-sm text-center m-0">Money Management is Your Key To Success and
+                    Consistency!</p>
             </div>
             <div class="row justify-content-center align-items-center">
                 <div class="col">
@@ -87,20 +86,21 @@
             <div class="row p-4 maincard border-0 rounded-3">
                 <div class="col-4 text-center">
                     <p class="fs-1 m-0 cardNumbers fw-medium" id="happyTraders">5,000</p>
-                    <p class="fs-4 pt-0 m-0" style="color: #157277">Happy Traders</p>
+                    <p class="fs-4 pt-0 m-0" style="color: var(--maincard-text)">Happy Traders</p>
                 </div>
                 <div class="col-4 text-center">
                     <p class="fs-1 m-0 cardNumbers fw-medium" id="precision">100%</p>
-                    <p class="fs-4 pt-0 m-0" style="color: #157277">Precision</p>
+                    <p class="fs-4 pt-0 m-0" style="color: var(--maincard-text)">Precision</p>
                 </div>
                 <div class="col-4 text-center">
                     <p class="fs-1 m-0 cardNumbers fw-medium" id="savings">60%</p>
-                    <p class="fs-4 pt-0 m-0" style="color: #157277">Savings</p>
+                    <p class="fs-4 pt-0 m-0" style="color: var(--maincard-text)">Savings</p>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 
 <script>
     function animateCount(element, target, duration, addPercent) {

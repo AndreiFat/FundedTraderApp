@@ -26,7 +26,7 @@
                                                    placeholder="email@domain.com">
 
                                             @error('email')
-                                            <span class="invalid-feedback" role="alert">
+                                            <span class="invalid-feedback fs-6" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                             @enderror
@@ -46,7 +46,7 @@
                                                    placeholder="Type your password">
 
                                             @error('password')
-                                            <span class="invalid-feedback" role="alert">
+                                            <span class="invalid-feedback fs-6" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                             @enderror
