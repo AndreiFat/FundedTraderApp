@@ -26,14 +26,16 @@
                                 <div class="mb-3">
                                     <label for="loss-limit" class="fs-5 form-label">Loss Limit</label>
                                     <div class="position-relative">
-                                        <input type="text"
+                                        <input type="number"
                                                class="fs-5 fw-medium text-secondary bg-secondary form-control"
                                                id="loss-limit"
+                                               name="loss-limit"
                                                aria-describedby="lossHelp"
-                                               placeholder="0.00"
+                                               placeholder=""
                                                oninput="formatWithCommas(this)"
                                                :value="loss_limit"
                                                @input="handleLoss_Limit"
+                                               value="{{old('loss-limit')}} " required autocomplete="loss-limit"
 
                                         >
                                         <span class="currency-suffix">USD</span>
@@ -71,19 +73,22 @@
                             </div>
                             <div class="d-flex mb-2 ">
                                 <p class="my-auto fs-5">Loss Per Trade</p>
-                                <p class="fs-5 mb-0 fw-semibold d-block ms-auto bg-danger py-2 px-3 rounded-3">
-                                    {(loss_per_trade)}
+                                <p id="loss_per_trade"
+                                   class="fs-5 mb-0 fw-semibold d-block ms-auto bg-danger py-2 px-3 rounded-3">
+                                    {(loss_per_trade.toFixed(2))}
                                     USD</p>
                             </div>
                             <div class="d-flex mb-2 ">
                                 <p class="my-auto fs-5">Risk Per Trade</p>
-                                <p class="fs-5 mb-0 fw-semibold d-block ms-auto bg-danger py-2 px-3 rounded-3">
+                                <p id="risk_per_trade"
+                                   class="fs-5 mb-0 fw-semibold d-block ms-auto bg-danger py-2 px-3 rounded-3">
                                     {(risk_per_trade)} %</p>
                             </div>
                             <div class="d-flex mb-2">
                                 <p class="my-auto fs-5">Profit Per Trade</p>
-                                <p class="fs-5 mb-0 fw-semibold d-block ms-auto bg-success py-2 px-3 rounded-3">
-                                    {(profit_per_trade)}
+                                <p id="profit_per_trade"
+                                   class="fs-5 mb-0 fw-semibold d-block ms-auto bg-success py-2 px-3 rounded-3">
+                                    {(profit_per_trade.toFixed(2))}
                                     USD</p>
                             </div>
                             <div class="d-flex mb-2">
@@ -92,11 +97,12 @@
                             </div>
                             <div class="d-flex mb-2">
                                 <p class="mb-0 fs-5">Total Commissions</p>
-                                <p class="fs-5 mb-0 fw-semibold d-block ms-auto">{(total_commissions)}</p>
+                                <p class="fs-5 mb-0 fw-semibold d-block ms-auto">{(total_commissions.toFixed(2))}</p>
                             </div>
                             <div class="d-flex mb-2">
                                 <p class="my-auto fs-5 text-uppercase fw-bold">Net Profit/Loss</p>
-                                <p class="fs-5 mb-0 fw-semibold d-block ms-auto bg-success py-2 px-3 rounded-3">
+                                <p id="net_profit_loss"
+                                   class="fs-5 mb-0 fw-semibold d-block ms-auto bg-success py-2 px-3 rounded-3">
                                     {(net_profit_loss)}
                                     USD</p>
                             </div>
@@ -124,11 +130,11 @@
                                         <div class="mb-4">
                                             <label for="loss-limit" class="fs-5 form-label">Quantity</label>
                                             <div class="position-relative">
-                                                <input type="text"
+                                                <input type="number"
                                                        class="fs-5 fw-medium text-secondary bg-secondary form-control"
                                                        id="loss-limit"
                                                        aria-describedby="lossHelp"
-                                                       placeholder="0.00"
+                                                       placeholder=""
                                                        oninput="formatWithCommas(this)"
                                                        :value="quantity"
                                                        @input="handleQuantity"
@@ -141,11 +147,11 @@
                                             <label for="loss-limit" class="fs-5 form-label">Stop Loss (Ticks /
                                                 Pips)</label>
                                             <div class="position-relative">
-                                                <input type="text"
+                                                <input type="number"
                                                        class="fs-5 fw-medium text-secondary bg-secondary form-control"
                                                        id="loss-limit"
                                                        aria-describedby="lossHelp"
-                                                       placeholder="0.00"
+                                                       placeholder=""
                                                        oninput="formatWithCommas(this)"
                                                        :value="stop_loss"
                                                        @input="handleStop_Loss"
@@ -159,11 +165,11 @@
                                         <div class="mb-4">
                                             <label for="loss-limit" class="fs-5 form-label">Tick / Pip Value</label>
                                             <div class="position-relative">
-                                                <input type="text"
+                                                <input type="number"
                                                        class="fs-5 fw-medium text-secondary bg-secondary form-control"
                                                        id="loss-limit"
                                                        aria-describedby="lossHelp"
-                                                       placeholder="0.00"
+                                                       placeholder=""
                                                        oninput="formatWithCommas(this)"
                                                        :value="tick_pip_value"
                                                        @input="handleTick_Pip_Value"
@@ -176,11 +182,11 @@
                                             <label for="loss-limit" class="fs-5 form-label">Profit Target (Ticks /
                                                 Pips)</label>
                                             <div class="position-relative">
-                                                <input type="text"
+                                                <input type="number"
                                                        class="fs-5 fw-medium text-secondary bg-secondary form-control"
                                                        id="loss-limit"
                                                        aria-describedby="lossHelp"
-                                                       placeholder="0.00"
+                                                       placeholder=""
                                                        oninput="formatWithCommas(this)"
                                                        :value="profit_target"
                                                        @input="handleProfit_Target"
@@ -200,11 +206,11 @@
                                         <div class="mb-3">
                                             <label for="loss-limit" class="fs-5 form-label">Wins</label>
                                             <div class="position-relative">
-                                                <input type="text"
+                                                <input type="number"
                                                        class="fs-5 fw-medium text-secondary bg-secondary form-control"
                                                        id="loss-limit"
                                                        aria-describedby="lossHelp"
-                                                       placeholder="0.00"
+                                                       placeholder=""
                                                        oninput="formatWithCommas(this)"
                                                        :value="wins"
                                                        @input="handleWins"
@@ -215,9 +221,10 @@
                                     <div class="col-6">
                                         <div class="mb-3">
                                             <div class="position-relative">
-                                                <p class="fs-5 mb-0 fw-semibold d-block ms-auto bg-success py-15 px-3 rounded-3">
+                                                <p id="wins_value"
+                                                   class="fs-5 mb-0 fw-semibold d-block ms-auto bg-success py-15 px-3 rounded-3">
                                                     {(wins_value)} </p>
-                                                <span class="currency-suffix-green">USD</span>
+                                                <span id="wins_value_span" class="currency-suffix-green">USD</span>
                                             </div>
                                         </div>
                                     </div>
@@ -225,13 +232,13 @@
                                 <div class="row align-items-end">
                                     <div class="col-6">
                                         <div class="mb-3">
-                                            <label for="loss-limit" class="fs-5 form-label">Loses</label>
+                                            <label for="loss-limit" class="fs-5 form-label">Losses</label>
                                             <div class="position-relative">
-                                                <input type="text"
+                                                <input type="number"
                                                        class="fs-5 fw-medium text-secondary bg-secondary form-control"
                                                        id="loss-limit"
                                                        aria-describedby="lossHelp"
-                                                       placeholder="0.00"
+                                                       placeholder=""
                                                        oninput="formatWithCommas(this)"
                                                        :value="loses"
                                                        @input="handleLoses"
@@ -242,9 +249,10 @@
                                     <div class="col-6">
                                         <div class="mb-3">
                                             <div class="position-relative">
-                                                <p class="fs-5 mb-0 fw-semibold d-block ms-auto bg-danger py-15 px-3 rounded-3">
+                                                <p id="loses_value"
+                                                   class="fs-5 mb-0 fw-semibold d-block ms-auto bg-danger py-15 px-3 rounded-3">
                                                     {(loses_value)} </p>
-                                                <span class="currency-suffix-red">USD</span>
+                                                <span id="loses_value_span" class="currency-suffix-red">USD</span>
                                             </div>
                                         </div>
                                     </div>
@@ -253,7 +261,7 @@
                                     <div class="col-6">
                                         <div class="d-flex mb-3">
                                             <p class="mb-0 fs-5">Win Rate</p>
-                                            <p class="fs-5 mb-0 fw-semibold d-block ms-auto">{(win_rate)}</p>
+                                            <p class="fs-5 mb-0 fw-semibold d-block ms-auto">{(win_rate)} %</p>
                                         </div>
                                     </div>
                                 </div>
@@ -270,11 +278,11 @@
                                         <div class="">
                                             <label for="loss-limit" class="fs-5 form-label">Commissions</label>
                                             <div class="position-relative">
-                                                <input type="text"
+                                                <input type="number"
                                                        class="fs-5 fw-medium text-secondary bg-secondary form-control"
                                                        id="loss-limit"
                                                        aria-describedby="lossHelp"
-                                                       placeholder="0.00"
+                                                       placeholder=""
                                                        oninput="formatWithCommas(this)"
                                                        :value="commissions"
                                                        @input="handleCommissions"
@@ -290,9 +298,11 @@
                                                 Loss</label>
 
                                             <div class="position-relative">
-                                                <p class="fs-5 mb-0 fw-semibold d-block ms-auto bg-success py-15 px-3 rounded-3">
+                                                <p id="net_profit_loss_value"
+                                                   class="fs-5 mb-0 fw-semibold d-block ms-auto bg-success py-15 px-3 rounded-3">
                                                     {(net_profit_loss)} </p>
-                                                <span class="currency-suffix-green">USD</span>
+                                                <span id="net_profit_loss_value_span"
+                                                      class="currency-suffix-green">USD</span>
                                             </div>
 
                                         </div>
@@ -318,14 +328,7 @@
         @push('vue-app')
             <script>
                 function formatWithCommas(input) {
-                    // Remove non-numeric characters and leading zeros
-                    let value = input.value.replace(/[^\d]/g, '').replace(/^0+/, '');
 
-                    // Format the value with commas
-                    value = Number(value).toLocaleString();
-
-                    // Update the input value
-                    input.value = value;
                 }
 
                 // Prevent form submission when Enter key is pressed in the input field
@@ -380,7 +383,7 @@
                     },
                     methods: {
                         handleLoss_Limit(event) {
-                            this.loss_limit = event.target.value;
+                            this.loss_limit = parseFloat(event.target.value);
                             // console.log(this.loss_limit)
                         },
                         handleQuantity(event) {
@@ -394,7 +397,7 @@
                             // console.log(this.stop_loss)
                         },
                         handleTick_Pip_Value(event) {
-                            this.tick_pip_value = event.target.value
+                            this.tick_pip_value = parseFloat(event.target.value)
                             this.tick_pip_value_show = this.tick_pip_value
                             //console.log(this.tick_pip_value)
                         },
@@ -404,11 +407,11 @@
                             // console.log(this.profit_target)
                         },
                         handleWins(event) {
-                            this.wins = event.target.value
+                            this.wins = parseFloat(event.target.value)
                             //console.log(this.wins)
                         },
                         handleLoses(event) {
-                            this.loses = event.target.value
+                            this.loses = parseFloat(event.target.value)
                             //console.log(this.loses)
                         },
                         handleCommissions(event) {
@@ -417,73 +420,156 @@
                         },
                         calculateLoss_Per_Trade() {
                             console.log("calculate loss per trade...")
-                            this.loss_per_trade = this.quantity * (-this.tick_pip_value) * this.stop_loss - (-this.quantity * this.commissions);
+                            this.loss_per_trade = (this.quantity * (-this.tick_pip_value) * this.stop_loss - (-this.quantity * this.commissions))
+                            if (this.loss_per_trade > 0) {
+                                document.querySelector('#loss_per_trade').classList.remove('bg-danger');
+                                document.querySelector('#loss_per_trade').classList.add('bg-success');
+                            } else {
+                                document.querySelector('#loss_per_trade').classList.remove('bg-success');
+                                document.querySelector('#loss_per_trade').classList.add('bg-danger');
+                            }
                         },
                         calculateRisk_Per_Trade() {
-                            //console.log(value)
-                            this.risk_per_trade = this.formatNumberWithParentheses(this.loss_limit / this.loss_per_trade)
+                            console.log("Loss Limit " + this.loss_limit)
+                            console.log("Loss Limit " + this.loss_per_trade)
+
+                            if (this.risk_per_trade !== 0) {
+                                this.risk_per_trade = ((this.loss_limit / this.loss_per_trade)).toFixed(2)
+                                if (this.risk_per_trade > 0) {
+                                    document.querySelector('#risk_per_trade').classList.remove('bg-danger');
+                                    document.querySelector('#risk_per_trade').classList.add('bg-success');
+                                } else {
+                                    document.querySelector('#risk_per_trade').classList.remove('bg-success');
+                                    document.querySelector('#risk_per_trade').classList.add('bg-danger');
+                                }
+                            }
                         },
-                        formatNumberWithParentheses(number) {
-                            // Split the number into integer and decimal parts
-                            const [integerPart, decimalPart] = number.toString().split('.');
-
-                            // Format the integer part by adding commas for thousands
-                            const formattedIntegerPart = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-
-                            // Combine the formatted integer part with the decimal part enclosed in parentheses
-                            return decimalPart ? `${formattedIntegerPart},(${decimalPart})` : formattedIntegerPart;
-                        }
-                        ,
                         calculateProfit_Per_Trade() {
                             this.profit_per_trade = this.quantity * this.tick_pip_value * this.profit_target - (this.quantity * this.commissions)
+
+                            if (this.profit_per_trade > 0) {
+                                document.querySelector('#profit_per_trade').classList.remove('bg-danger');
+                                document.querySelector('#profit_per_trade').classList.add('bg-success');
+                            } else {
+                                document.querySelector('#profit_per_trade').classList.remove('bg-success');
+                                document.querySelector('#profit_per_trade').classList.add('bg-danger');
+                            }
                         },
                         calculateNumber_of_Trades() {
-                            console.log("WINS")
-                            console.log(this.wins)
-                            this.number_of_trades = parseInt(this.wins) + parseInt(this.loses);
+                            if (isNaN(this.wins) || isNaN(this.loses)) {
+                                this.number_of_trades = 0;
+                            } else {
+                                this.number_of_trades = this.wins + this.loses;
+                            }
                         },
                         calculateTotal_Commissions() {
-                            this.total_commissions = this.number_of_trades * parseInt(this.commissions)
+                            if (isNaN(this.commissions) || this.commissions === '') {
+                                this.total_commissions = 0
+                            } else {
+                                this.total_commissions = this.number_of_trades * parseInt(this.commissions)
+                            }
                         },
                         calculateR() {
-                            this.R = this.profit_target / this.stop_loss
+                            let value;
+                            if (isNaN(this.stop_loss) || this.stop_loss === 0 || isNaN(this.profit_target) || this.profit_target === 0 || this.stop_loss === '' || this.profit_target === '') {
+                                this.R = 0
+                            } else {
+                                value = this.profit_target / this.stop_loss
+                                if (isFinite(value)) {
+                                    this.R = value
+                                }
+                            }
                         },
                         calculateWins_Value() {
-                            this.wins_value = this.wins * this.quantity * this.tick_pip_value * this.profit_target
+                            if (isNaN(this.wins) || isNaN(this.tick_pip_value)) {
+                                this.wins_value = 0;
+                            } else {
+                                this.wins_value = (this.wins * this.quantity * this.tick_pip_value * this.profit_target).toFixed(2)
+                                if (this.wins_value > 0) {
+                                    document.querySelector('#wins_value').classList.remove('bg-danger');
+                                    document.querySelector('#wins_value').classList.add('bg-success');
+                                    document.querySelector('#wins_value_span').classList.remove('currency-suffix-red');
+                                    document.querySelector('#wins_value_span').classList.add('currency-suffix-green');
+                                } else {
+                                    document.querySelector('#wins_value').classList.remove('bg-success');
+                                    document.querySelector('#wins_value').classList.add('bg-danger');
+                                    document.querySelector('#wins_value_span').classList.remove('currency-suffix-green');
+                                    document.querySelector('#wins_value_span').classList.add('currency-suffix-red');
+                                }
+                            }
                         },
                         calculateLoses_Value() {
-                            this.loses_value = this.loses * this.quantity * (-this.tick_pip_value) * this.stop_loss
+                            if (isNaN(this.loses) || isNaN(this.tick_pip_value)) {
+                                this.loses_value = 0;
+                            } else {
+                                this.loses_value = (this.loses * this.quantity * (-this.tick_pip_value) * this.stop_loss).toFixed(2)
+                                if (this.loses_value > 0) {
+                                    document.querySelector('#loses_value').classList.remove('bg-danger');
+                                    document.querySelector('#loses_value').classList.add('bg-success');
+                                    document.querySelector('#loses_value_span').classList.remove('bg-danger');
+                                    document.querySelector('#loses_value_span').classList.add('bg-success');
+                                } else {
+                                    document.querySelector('#loses_value').classList.remove('bg-success');
+                                    document.querySelector('#loses_value').classList.add('bg-danger');
+                                    document.querySelector('#loses_value_span').classList.remove('bg-danger');
+                                    document.querySelector('#loses_value_span').classList.add('bg-success');
+                                }
+                            }
                         },
                         calculateWin_Rate() {
-                            if (isNaN(this.wins)) {
+                            if (isNaN(this.wins) || isNaN(this.loses) || isNaN(this.number_of_trades)) {
                                 this.win_rate = 0;
                             } else {
                                 this.win_rate = (((this.wins / this.number_of_trades) * 100)).toFixed(0)
                             }
                         },
                         calculateNet_Profit_Loss() {
-                            this.net_profit_loss = parseFloat(this.wins_value) + parseFloat(this.loses_value) - (this.number_of_trades)
+                            if (this.wins_value !== 0 || this.loses_value !== 0 || this.number_of_trades !== 0) {
+                                this.net_profit_loss = (parseFloat(this.wins_value) + parseFloat(this.loses_value) - (this.number_of_trades)).toFixed(2)
+                                if (this.net_profit_loss > 0) {
+                                    document.querySelector('#net_profit_loss').classList.remove('bg-danger');
+                                    document.querySelector('#net_profit_loss').classList.add('bg-success');
+                                    document.querySelector('#net_profit_loss_value').classList.remove('bg-danger');
+                                    document.querySelector('#net_profit_loss_value').classList.add('bg-success');
+                                    document.querySelector('#net_profit_loss_value_span').classList.remove('bg-danger');
+                                    document.querySelector('#net_profit_loss_value_span').classList.add('bg-success');
+                                    document.querySelector('#net_profit_loss_value_span').classList.remove('currency-suffix-red');
+                                    document.querySelector('#net_profit_loss_value_span').classList.add('currency-suffix-green');
+
+                                } else {
+                                    document.querySelector('#net_profit_loss').classList.remove('bg-success');
+                                    document.querySelector('#net_profit_loss').classList.add('bg-danger');
+                                    document.querySelector('#net_profit_loss_value').classList.remove('bg-success');
+                                    document.querySelector('#net_profit_loss_value').classList.add('bg-danger');
+                                    document.querySelector('#net_profit_loss_value_span').classList.remove('currency-suffix-green');
+                                    document.querySelector('#net_profit_loss_value_span').classList.add('currency-suffix-red');
+                                }
+                            }
                         },
                         calculateMax_Loses_Limit() {
-                            this.max_loses_limit = this.loss_limit / (-this.loss_per_trade)
+                            if (this.loss_per_trade !== 0 && !isNaN(this.loss_limit)) {
+                                this.max_loses_limit = (this.loss_limit / (-this.loss_per_trade)).toFixed(2).toLocaleString();
+                            } else {
+                                this.max_loses_limit = 0;
+                            }
                         },
                         calculateRolling_Loss() {
-                            // const sanitizedString = this.loss_limit.replace(/[.,]/g, '');
-                            // const floatValue = parseFloat(sanitizedString);
-                            // if (!isNaN(floatValue)) {
-                            //     // Convert the float back to a string with a specific number of decimal places
-                            //     floatValue.toFixed(3); // Adjust the number of decimal places as needed
-                            // }
-                            let value = parseInt(this.loss_limit) + this.net_profit_loss
-                            console.log(this.net_profit_loss)
-                            this.rolling_loss_limit = value
-                            console.log(this.rolling_loss_limit)
-                        }
+                            const numberFormat = new Intl.NumberFormat('en-US', {
+                                style: 'decimal',
+                                minimumFractionDigits: 2
+                            });
+                            if (!isNaN(this.loss_limit)) {
+                                let value = this.loss_limit + parseFloat(this.net_profit_loss)
+                                this.rolling_loss_limit = numberFormat.format(value)
+                            } else {
+                                this.rolling_loss_limit = 0
+                            }
+                        },
                     },
                     watch: {
-                        loss_limit: ['calculateRolling_Loss', 'calculateMax_Loses_Limit', 'calculateRisk_Per_Trade'],
+                        loss_limit: ['calculateRolling_Loss', 'calculateMax_Loses_Limit'],
 
-                        quantity: ['calculateNumber_of_Trades', 'calculateLoss_Per_Trade', 'calculateProfit_Per_Trade', 'calculateWins_Value', 'calculateLoses_Value'],
+                        quantity: ['calculateLoss_Per_Trade', 'calculateProfit_Per_Trade', 'calculateWins_Value', 'calculateLoses_Value'],
                         stop_loss: ['calculateLoss_Per_Trade', 'calculateLoses_Value', 'calculateR'],
                         tick_pip_value: ['calculateLoss_Per_Trade', 'calculateProfit_Per_Trade', 'calculateLoses_Value', 'calculateWins_Value'],
                         profit_target: ['calculateProfit_Per_Trade', 'calculateR', 'calculateWins_Value'],
@@ -493,8 +579,10 @@
                         commissions: ['calculateLoss_Per_Trade', 'calculateProfit_Per_Trade', 'calculateTotal_Commissions'],
 
                         net_profit_loss: ['calculateRolling_Loss'],
-                        wins_value: ['calculateNet_Profit_Loss'],
-                        loses_value: ['calculateNet_Profit_Loss'],
+                        wins_value: ['calculateNet_Profit_Loss', 'calculateWins_Value'],
+                        loses_value: ['calculateNet_Profit_Loss', 'calculateLoses_Value'],
+
+                        loss_per_trade: ['calculateMax_Loses_Limit', 'calculateRisk_Per_Trade'],
 
                         number_of_trades: ['calculateNumber_of_Trades', 'calculateWin_Rate', 'calculateTotal_Commissions', 'calculateNet_Profit_Loss']
                     },

@@ -13,16 +13,23 @@
     border-color: rgba(240, 158, 0, 0.2);
     outline: 0;
     box-shadow: 0 0 0 .25rem rgba(240, 158, 0, 0.1);
-    padding-right: 64px;
+    padding-right: 64px !important;
+}
+
+/* Hide the spinners for number input */
+input[type="number"] {
+    -webkit-appearance: none; /* Chrome, Safari, Edge */
+    -moz-appearance: textfield; /* Firefox */
+    appearance: textfield; /* Others */
 }
 
 .form-control {
-    padding-right: 64px;
+    padding-right: 64px !important;
 }
 
 .currency-suffix {
     position: absolute;
-    right: 10px; /* Adjust as needed for spacing */
+    right: 15px; /* Adjust as needed for spacing */
     top: 50%;
     transform: translateY(-50%);
     font-family: 'Futura PT', sans-serif;
@@ -33,7 +40,7 @@
 
 .currency-suffix-green {
     position: absolute;
-    right: 10px; /* Adjust as needed for spacing */
+    right: 15px; /* Adjust as needed for spacing */
     top: 50%;
     transform: translateY(-50%);
     font-family: 'Futura PT', sans-serif;

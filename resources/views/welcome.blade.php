@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>{{ config('app.name', 'Funded Trader Money Management App') }}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -50,11 +50,13 @@
         <li></li>
         <li></li>
     </ul>
-    <div class="my-3 d-flex justify-content-end">
+    <div class="my-5 py-4 d-flex justify-content-end">
         @if (Route::has('login'))
             @auth
                 <a href="{{ url('/home') }}"
-                   class="fs-5 text-decoration-none text-dark-emphasis nav-buttons">Dashboard</a>
+                   class="fs-5 text-decoration-none text-dark-emphasis nav-buttons me-3">Dashboard</a>
+                <a href="{{ url('/payment') }}"
+                   class="fs-5 text-decoration-none text-dark-emphasis nav-buttons">Payment</a>
             @else
                 <a href="{{ route('login') }}"
                    class="fs-5 text-decoration-none text-dark-emphasis me-3 nav-buttons">Log in</a>
@@ -83,20 +85,20 @@
                        href="{{ route('register') }}">{{ __('Join us') }}</a>
                 </div>
             </div>
-            <div class="row p-4 maincard border-0 rounded-3 mx-4 mx-sm-0">
-                <div class="col-md-4 mb-3 mb-sm-0 text-center">
-                    <p class="fs-1 m-0 cardNumbers fw-medium" id="happyTraders">5,000</p>
-                    <p class="fs-4 pt-0 m-0" style="color: var(--maincard-text)">Happy Traders</p>
-                </div>
-                <div class="col-md-4 mb-3 mb-sm-0 text-center">
-                    <p class="fs-1 m-0 cardNumbers fw-medium" id="precision">100%</p>
-                    <p class="fs-4 pt-0 m-0" style="color: var(--maincard-text)">Precision</p>
-                </div>
-                <div class="col-md-4 mb-3 mb-sm-0 text-center">
-                    <p class="fs-1 m-0 cardNumbers fw-medium" id="savings">60%</p>
-                    <p class="fs-4 pt-0 m-0" style="color: var(--maincard-text)">Savings</p>
-                </div>
-            </div>
+            {{--            <div class="row p-4 maincard border-0 rounded-3 mx-4 mx-sm-0">--}}
+            {{--                <div class="col-md-4 mb-3 mb-sm-0 text-center">--}}
+            {{--                    <p class="fs-1 m-0 cardNumbers fw-medium" id="happyTraders">5,000</p>--}}
+            {{--                    <p class="fs-4 pt-0 m-0" style="color: var(--maincard-text)">Happy Traders</p>--}}
+            {{--                </div>--}}
+            {{--                <div class="col-md-4 mb-3 mb-sm-0 text-center">--}}
+            {{--                    <p class="fs-1 m-0 cardNumbers fw-medium" id="precision">100%</p>--}}
+            {{--                    <p class="fs-4 pt-0 m-0" style="color: var(--maincard-text)">Precision</p>--}}
+            {{--                </div>--}}
+            {{--                <div class="col-md-4 mb-3 mb-sm-0 text-center">--}}
+            {{--                    <p class="fs-1 m-0 cardNumbers fw-medium" id="savings">60%</p>--}}
+            {{--                    <p class="fs-4 pt-0 m-0" style="color: var(--maincard-text)">Savings</p>--}}
+            {{--                </div>--}}
+            {{--            </div>--}}
         </div>
     </div>
 </div>
