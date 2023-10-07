@@ -23,6 +23,6 @@ class CheckPaidService
         }
         $message = "You cannot access this tool until you successfully complete the payment!";
 
-        return redirect()->back()->with('error', $message); // Redirect back to the previous page
+        return redirect()->to('/welcome');
     }
 }
