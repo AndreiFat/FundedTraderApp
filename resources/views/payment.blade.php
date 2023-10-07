@@ -4,11 +4,10 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card my-4 p-3">
-                    <div class="">{{ __('Payment') }}</div>
-
+                <div class="card my-4 p-4">
                     <div class="card-body">
-                        <p>One-Time Payment of $6.99 For Use on Desktop or Smartphone</p>
+                        <div class="">{{ __('Payment') }}</div>
+                        <p class="fs-5">One-Time Payment of $6.99 For Use on Desktop or Smartphone</p>
                         <a class="fs-5 btn btn-primary" href="">BUY NOW</a>
                         @error('error') is-invalid @enderror
                         @error('error')
