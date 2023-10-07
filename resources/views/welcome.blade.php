@@ -50,20 +50,20 @@
         <li></li>
         <li></li>
     </ul>
-    <div class="my-5 py-4 d-flex justify-content-end">
+    <div class="my-2 py-4 d-flex justify-content-end">
         @if (Route::has('login'))
             @auth
                 <a href="{{ url('/home') }}"
-                   class="fs-5 text-decoration-none text-dark-emphasis nav-buttons me-3">Dashboard</a>
+                   class="fs-4 text-decoration-none text-dark-emphasis nav-buttons me-3">Dashboard</a>
                 <a href="{{ url('/payment') }}"
-                   class="fs-5 text-decoration-none text-dark-emphasis nav-buttons">Payment</a>
+                   class="fs-4 text-decoration-none text-dark-emphasis nav-buttons">Payment</a>
             @else
                 <a href="{{ route('login') }}"
-                   class="fs-5 text-decoration-none text-dark-emphasis me-3 nav-buttons">Log in</a>
+                   class="fs-4 text-decoration-none text-dark-emphasis me-3 nav-buttons">Log in</a>
 
                 @if (Route::has('register'))
                     <a href="{{ route('register') }}"
-                       class="fs-5 text-decoration-none text-dark-emphasis nav-buttons">Register</a>
+                       class="fs-4 text-decoration-none text-dark-emphasis nav-buttons">Register</a>
                 @endif
             @endauth
         @endif
@@ -82,7 +82,7 @@
             <div class="row justify-content-center align-items-center">
                 <div class="col">
                     <a class="fs-4 px-5 py-2 my-4 btn btn-primary"
-                       href="{{ route('register') }}">{{ __('Join us') }}</a>
+                       href="{{ route('payment') }}">{{ __('Get Started') }}</a>
                 </div>
             </div>
             {{--            <div class="row p-4 maincard border-0 rounded-3 mx-4 mx-sm-0">--}}

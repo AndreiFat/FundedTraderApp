@@ -61,21 +61,21 @@
                     @guest
                         @if (Route::has('login'))
                             <li class="nav-item">
-                                <a class="nav-link fs-6 me-3 text-dark-emphasis"
+                                <a class="nav-link fs-5 me-3 text-dark-emphasis"
                                    href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                         @endif
 
                         @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link fs-6 text-dark-emphasis"
+                                <a class="nav-link fs-5 text-dark-emphasis"
                                    href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
                         @endif
                     @else
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown"
-                               class="nav-link dropdown-toggle fs-5 align-middle text-primary bg-success-dropdown px-4 rounded-3"
+                               class="nav-link dropdown-toggle fs-6 align-middle text-primary bg-success-dropdown px-4 rounded-3"
                                href="#"
                                role="button"
                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
