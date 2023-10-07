@@ -156,7 +156,6 @@ h2 {
     padding: 0;
     overflow: hidden;
     background-image: url("../assets/homepageBackground.jpg");
-    opacity: 95% !important;
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -166,7 +165,7 @@ h2 {
     position: absolute;
     width: 100vw;
     height: 100vh;
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.80);
 }
 
 .background li {
