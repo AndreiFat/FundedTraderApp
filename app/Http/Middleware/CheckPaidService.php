@@ -23,6 +23,6 @@ class CheckPaidService
         }
         $message = "You cannot access this tool until you successfully complete the payment!";
 
-        return redirect()->to('/welcome');
+        return redirect()->to('/');
     }
 }
