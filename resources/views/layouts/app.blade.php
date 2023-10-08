@@ -106,6 +106,12 @@
     <main class="">
         @yield('content')
     </main>
+
+    <footer class="container">
+        <p class="mt-2 mt-md-3 fs-5 text-muted ">
+            © Copyright 2023 www.fundedtraderapp.com
+        </p>
+    </footer>
 </div>
 {{--    Bootstrap 5.3 CDN--}}
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
