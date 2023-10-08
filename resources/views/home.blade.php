@@ -75,20 +75,20 @@
                                 <p class="my-auto fs-5">Loss Per Trade</p>
                                 <p id="loss_per_trade"
                                    class="fs-5 mb-0 fw-semibold d-block ms-auto bg-danger py-2 px-3 rounded-3">
-                                    {(loss_per_trade.toFixed(2))}
+                                    {(loss_per_trade)}
                                     USD</p>
                             </div>
                             <div class="d-flex mb-2 ">
                                 <p class="my-auto fs-5">Risk Per Trade</p>
                                 <p id="risk_per_trade"
                                    class="fs-5 mb-0 fw-semibold d-block ms-auto bg-danger py-2 px-3 rounded-3">
-                                    {(risk_per_trade)} %</p>
+                                    {(risk_per_trade)} USD</p>
                             </div>
                             <div class="d-flex mb-2">
                                 <p class="my-auto fs-5">Profit Per Trade</p>
                                 <p id="profit_per_trade"
                                    class="fs-5 mb-0 fw-semibold d-block ms-auto bg-success py-2 px-3 rounded-3">
-                                    {(profit_per_trade.toFixed(2))}
+                                    {(profit_per_trade)}
                                     USD</p>
                             </div>
                             <div class="d-flex mb-2">
@@ -103,7 +103,7 @@
                                 <p class="my-auto fs-5 text-uppercase fw-bold">Net Profit/Loss</p>
                                 <p id="net_profit_loss"
                                    class="fs-5 mb-0 fw-semibold d-block ms-auto bg-success py-2 px-3 rounded-3">
-                                    {(net_profit_loss)}
+                                    {(net_profit_loss_show)}
                                     USD</p>
                             </div>
                             <div class="d-flex">
@@ -223,7 +223,7 @@
                                             <div class="position-relative">
                                                 <p id="wins_value"
                                                    class="fs-5 mb-0 fw-semibold d-block ms-auto bg-success py-15 px-3 rounded-3">
-                                                    {(wins_value)} </p>
+                                                    {(wins_value_show)} </p>
                                                 <span id="wins_value_span" class="currency-suffix-green">USD</span>
                                             </div>
                                         </div>
@@ -251,7 +251,7 @@
                                             <div class="position-relative">
                                                 <p id="loses_value"
                                                    class="fs-5 mb-0 fw-semibold d-block ms-auto bg-danger py-15 px-3 rounded-3">
-                                                    {(loses_value)} </p>
+                                                    {(loses_value_show)} </p>
                                                 <span id="loses_value_span" class="currency-suffix-red">USD</span>
                                             </div>
                                         </div>
@@ -300,7 +300,7 @@
                                             <div class="position-relative">
                                                 <p id="net_profit_loss_value"
                                                    class="fs-5 mb-0 fw-semibold d-block ms-auto bg-success py-15 px-3 rounded-3">
-                                                    {(net_profit_loss)} </p>
+                                                    {(net_profit_loss_show)} </p>
                                                 <span id="net_profit_loss_value_span"
                                                       class="currency-suffix-green">USD</span>
                                             </div>
@@ -379,6 +379,11 @@
                             // Totals
                             wins_value: 0,
                             loses_value: 0,
+
+                            // Values
+                            wins_value_show:0,
+                            loses_value_show:0,
+                            net_profit_loss_show: 0,
                         }
                     },
                     methods: {
@@ -388,23 +393,39 @@
                         },
                         handleQuantity(event) {
                             this.quantity = event.target.value
-                            this.position_size = this.quantity
-                            // console.log(this.quantity)
+
+                            if(isNaN(this.quantity) || this.quantity===''){
+                                this.position_size=0
+                            }else{
+                                this.position_size = this.quantity
+
+                            }
                         },
                         handleStop_Loss(event) {
                             this.stop_loss = event.target.value
-                            this.stop_loss_value = this.stop_loss
-                            // console.log(this.stop_loss)
+                            if(isNaN(this.stop_loss) || this.stop_loss===''){
+                                this.stop_loss_value=0
+                            }else{
+                                this.stop_loss_value = this.stop_loss
+                            }
                         },
                         handleTick_Pip_Value(event) {
                             this.tick_pip_value = parseFloat(event.target.value)
-                            this.tick_pip_value_show = this.tick_pip_value
+                            if(!isNaN(this.tick_pip_value)){
+                                this.tick_pip_value_show = this.tick_pip_value
+                            }else{
+                                this.tick_pip_value_show=0
+                            }
                             //console.log(this.tick_pip_value)
                         },
                         handleProfit_Target(event) {
                             this.profit_target = event.target.value
                             this.take_profit = this.profit_target
-                            // console.log(this.profit_target)
+                            if(isNaN(this.profit_target) || this.profit_target===''){
+                                this.take_profit = 0
+                            }else{
+                                this.take_profit = this.profit_target
+                            }
                         },
                         handleWins(event) {
                             this.wins = parseFloat(event.target.value)
@@ -419,21 +440,28 @@
                             //console.log(this.commissions)
                         },
                         calculateLoss_Per_Trade() {
-                            console.log("calculate loss per trade...")
-                            this.loss_per_trade = (this.quantity * (-this.tick_pip_value) * this.stop_loss - (-this.quantity * this.commissions))
-                            if (this.loss_per_trade > 0) {
-                                document.querySelector('#loss_per_trade').classList.remove('bg-danger');
-                                document.querySelector('#loss_per_trade').classList.add('bg-success');
-                            } else {
-                                document.querySelector('#loss_per_trade').classList.remove('bg-success');
-                                document.querySelector('#loss_per_trade').classList.add('bg-danger');
+                            const numberFormat = new Intl.NumberFormat('en-US', {
+                                style: 'decimal',
+                                minimumFractionDigits: 2
+                            });
+                            if(this.tick_pip_value===0 || isNaN(this.tick_pip_value)){
+                                this.loss_per_trade = 0
+                            }else{
+                                this.loss_per_trade = numberFormat.format(this.quantity * (-this.tick_pip_value) * this.stop_loss - (-this.quantity * this.commissions))
+                                if (this.loss_per_trade > 0) {
+                                    document.querySelector('#loss_per_trade').classList.remove('bg-danger');
+                                    document.querySelector('#loss_per_trade').classList.add('bg-success');
+                                } else {
+                                    document.querySelector('#loss_per_trade').classList.remove('bg-success');
+                                    document.querySelector('#loss_per_trade').classList.add('bg-danger');
+                                }
                             }
                         },
                         calculateRisk_Per_Trade() {
                             console.log("Loss Limit " + this.loss_limit)
                             console.log("Loss Limit " + this.loss_per_trade)
 
-                            if (this.risk_per_trade !== 0) {
+                            if (this.loss_per_trade !== 0 || !isNaN(this.loss_per_trade)) {
                                 this.risk_per_trade = ((this.loss_limit / this.loss_per_trade)).toFixed(2)
                                 if (this.risk_per_trade > 0) {
                                     document.querySelector('#risk_per_trade').classList.remove('bg-danger');
@@ -442,18 +470,29 @@
                                     document.querySelector('#risk_per_trade').classList.remove('bg-success');
                                     document.querySelector('#risk_per_trade').classList.add('bg-danger');
                                 }
+                            }else{
+                                this.risk_per_trade = 0;
                             }
                         },
                         calculateProfit_Per_Trade() {
-                            this.profit_per_trade = this.quantity * this.tick_pip_value * this.profit_target - (this.quantity * this.commissions)
+                            const numberFormat = new Intl.NumberFormat('en-US', {
+                                style: 'decimal',
+                                minimumFractionDigits: 2
+                            });
+                            if(this.tick_pip_value===0){
+                                this.profit_per_trade=0;
+                            }else{
+                                this.profit_per_trade = numberFormat.format(this.quantity * this.tick_pip_value * this.profit_target - (this.quantity * this.commissions))
 
-                            if (this.profit_per_trade > 0) {
-                                document.querySelector('#profit_per_trade').classList.remove('bg-danger');
-                                document.querySelector('#profit_per_trade').classList.add('bg-success');
-                            } else {
-                                document.querySelector('#profit_per_trade').classList.remove('bg-success');
-                                document.querySelector('#profit_per_trade').classList.add('bg-danger');
+                                if (this.profit_per_trade > 0) {
+                                    document.querySelector('#profit_per_trade').classList.remove('bg-danger');
+                                    document.querySelector('#profit_per_trade').classList.add('bg-success');
+                                } else {
+                                    document.querySelector('#profit_per_trade').classList.remove('bg-success');
+                                    document.querySelector('#profit_per_trade').classList.add('bg-danger');
+                                }
                             }
+
                         },
                         calculateNumber_of_Trades() {
                             if (isNaN(this.wins) || isNaN(this.loses)) {
@@ -481,10 +520,15 @@
                             }
                         },
                         calculateWins_Value() {
+                            const numberFormat = new Intl.NumberFormat('en-US', {
+                                style: 'decimal',
+                                minimumFractionDigits: 2
+                            });
                             if (isNaN(this.wins) || isNaN(this.tick_pip_value)) {
                                 this.wins_value = 0;
                             } else {
                                 this.wins_value = (this.wins * this.quantity * this.tick_pip_value * this.profit_target).toFixed(2)
+                                this.wins_value_show = numberFormat.format(this.wins_value)
                                 if (this.wins_value > 0) {
                                     document.querySelector('#wins_value').classList.remove('bg-danger');
                                     document.querySelector('#wins_value').classList.add('bg-success');
@@ -499,20 +543,25 @@
                             }
                         },
                         calculateLoses_Value() {
+                            const numberFormat = new Intl.NumberFormat('en-US', {
+                                style: 'decimal',
+                                minimumFractionDigits: 2
+                            });
                             if (isNaN(this.loses) || isNaN(this.tick_pip_value)) {
                                 this.loses_value = 0;
                             } else {
                                 this.loses_value = (this.loses * this.quantity * (-this.tick_pip_value) * this.stop_loss).toFixed(2)
+                                this.loses_value_show = numberFormat.format(this.loses_value)
                                 if (this.loses_value > 0) {
                                     document.querySelector('#loses_value').classList.remove('bg-danger');
                                     document.querySelector('#loses_value').classList.add('bg-success');
-                                    document.querySelector('#loses_value_span').classList.remove('bg-danger');
-                                    document.querySelector('#loses_value_span').classList.add('bg-success');
+                                    document.querySelector('#loses_value_span').classList.remove('currency-suffix-red');
+                                    document.querySelector('#loses_value_span').classList.add('currency-suffix-green');
                                 } else {
                                     document.querySelector('#loses_value').classList.remove('bg-success');
                                     document.querySelector('#loses_value').classList.add('bg-danger');
-                                    document.querySelector('#loses_value_span').classList.remove('bg-danger');
-                                    document.querySelector('#loses_value_span').classList.add('bg-success');
+                                    document.querySelector('#loses_value_span').classList.remove('currency-suffix-green');
+                                    document.querySelector('#loses_value_span').classList.add('currency-suffix-red');
                                 }
                             }
                         },
@@ -524,15 +573,18 @@
                             }
                         },
                         calculateNet_Profit_Loss() {
+                            const numberFormat = new Intl.NumberFormat('en-US', {
+                                style: 'decimal',
+                                minimumFractionDigits: 2
+                            });
                             if (this.wins_value !== 0 || this.loses_value !== 0 || this.number_of_trades !== 0) {
                                 this.net_profit_loss = (parseFloat(this.wins_value) + parseFloat(this.loses_value) - (this.number_of_trades)).toFixed(2)
+                                this.net_profit_loss_show = numberFormat.format(this.net_profit_loss)
                                 if (this.net_profit_loss > 0) {
                                     document.querySelector('#net_profit_loss').classList.remove('bg-danger');
                                     document.querySelector('#net_profit_loss').classList.add('bg-success');
                                     document.querySelector('#net_profit_loss_value').classList.remove('bg-danger');
                                     document.querySelector('#net_profit_loss_value').classList.add('bg-success');
-                                    document.querySelector('#net_profit_loss_value_span').classList.remove('bg-danger');
-                                    document.querySelector('#net_profit_loss_value_span').classList.add('bg-success');
                                     document.querySelector('#net_profit_loss_value_span').classList.remove('currency-suffix-red');
                                     document.querySelector('#net_profit_loss_value_span').classList.add('currency-suffix-green');
 
@@ -547,7 +599,7 @@
                             }
                         },
                         calculateMax_Loses_Limit() {
-                            if (this.loss_per_trade !== 0 && !isNaN(this.loss_limit)) {
+                            if (this.loss_per_trade !== 0 && !isNaN(this.loss_limit) && this.loss_limit !== 0) {
                                 this.max_loses_limit = (this.loss_limit / (-this.loss_per_trade)).toFixed(2).toLocaleString();
                             } else {
                                 this.max_loses_limit = 0;
@@ -567,7 +619,7 @@
                         },
                     },
                     watch: {
-                        loss_limit: ['calculateRolling_Loss', 'calculateMax_Loses_Limit'],
+                        loss_limit: ['calculateRolling_Loss', 'calculateMax_Loses_Limit','calculateRisk_Per_Trade'],
 
                         quantity: ['calculateLoss_Per_Trade', 'calculateProfit_Per_Trade', 'calculateWins_Value', 'calculateLoses_Value'],
                         stop_loss: ['calculateLoss_Per_Trade', 'calculateLoses_Value', 'calculateR'],
@@ -584,7 +636,7 @@
 
                         loss_per_trade: ['calculateMax_Loses_Limit', 'calculateRisk_Per_Trade'],
 
-                        number_of_trades: ['calculateNumber_of_Trades', 'calculateWin_Rate', 'calculateTotal_Commissions', 'calculateNet_Profit_Loss']
+                        number_of_trades: ['calculateNumber_of_Trades', 'calculateWin_Rate', 'calculateTotal_Commissions', 'calculateNet_Profit_Loss','calculateRisk_Per_Trade']
                     },
                     deep: true,
                     delimiters: ['{(', ')}']

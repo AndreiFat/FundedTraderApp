@@ -24,3 +24,7 @@
         padding-right: 8px;
     }
 }
+
+.bg-primary{
+    background-color: var(--main-bg-color) !important;
+}

@@ -55,8 +55,10 @@
             @auth
                 <a href="{{ url('/home') }}"
                    class="fs-4 text-decoration-none text-dark-emphasis nav-buttons me-3">Dashboard</a>
+                @if(auth()->user()->paid_service ==0 )
                 <a href="{{ url('/payment') }}"
                    class="fs-4 text-decoration-none text-dark-emphasis nav-buttons">Payment</a>
+                @endif
             @else
                 <a href="{{ route('login') }}"
                    class="fs-4 text-decoration-none text-dark-emphasis me-3 nav-buttons">Log in</a>
@@ -79,7 +81,7 @@
                 <p class="fs-2 text-muted lh-sm text-center m-0">Money Management is Your Key To Success and
                     Consistency!</p>
             </div>
-            <div class="row justify-content-center align-items-center">
+            <div class="row justify-content-center align-items-center mb-0 mb-md-5">
                 <div class="col">
                     <a class="fs-4 px-5 py-2 my-4 btn btn-primary"
                        href="{{ route('payment') }}">{{ __('Get Started') }}</a>
@@ -100,6 +102,12 @@
             {{--                </div>--}}
             {{--            </div>--}}
         </div>
+        <footer class="mt-5 pt-5">
+            <p class="fs-3 text-center fw-medium">For support please email us</p>
+            <div class="d-flex justify-content-center px-2">
+                <p class="fs-4 text-center fw-bold bg-primary text-white py-2 px-5 rounded-3">info@fundedtraderapp.com</p>
+            </div>
+        </footer>
     </div>
 </div>
 
