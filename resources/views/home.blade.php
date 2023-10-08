@@ -98,7 +98,7 @@
                             </div>
                             <div class="d-flex mb-2">
                                 <p class="mb-0 fs-5">Total Commissions</p>
-                                <p class="fs-5 mb-0 fw-semibold d-block ms-auto">{(total_commissions.toFixed(2))}</p>
+                                <p class="fs-5 mb-0 fw-semibold d-block ms-auto">{(total_commissions)}</p>
                             </div>
                             <div class="d-flex mb-2">
                                 <p class="my-auto fs-5 text-uppercase fw-bold">Net Profit/Loss</p>
@@ -166,7 +166,7 @@
                                         <div class="mb-4">
                                             <label for="loss-limit" class="fs-5 form-label">Tick / Pip Value</label>
                                             <div class="position-relative">
-                                                <input type="number"
+                                                <input type="text"
                                                        class="fs-5 fw-medium text-secondary bg-secondary form-control"
                                                        id="loss-limit"
                                                        aria-describedby="lossHelp"
@@ -458,16 +458,10 @@
                             }
                         },
                         calculateRisk_Per_Trade() {
-                            console.log("Loss Limit " + this.loss_limit)
-                            console.log("Loss Limit " + this.loss_per_trade)
-
                             if (this.loss_per_trade !== 0 || !isNaN(this.loss_per_trade)) {
                                 let value = (this.loss_limit / this.loss_per_trade)
                                 if(isFinite(value)){
                                     this.risk_per_trade = value.toFixed(2)
-                                }
-                                else{
-                                    this.risk_per_trade = 0
                                 }
                                 if (this.risk_per_trade > 0) {
                                     document.querySelector('#risk_per_trade').classList.remove('bg-danger');
@@ -501,6 +495,7 @@
 
                         },
                         calculateNumber_of_Trades() {
+
                             if (isNaN(this.wins) || isNaN(this.loses)) {
                                 this.number_of_trades = 0;
                             } else {
@@ -508,10 +503,14 @@
                             }
                         },
                         calculateTotal_Commissions() {
+                            const numberFormat = new Intl.NumberFormat('en-US', {
+                                style: 'decimal',
+                                minimumFractionDigits: 2
+                            });
                             if (isNaN(this.commissions) || this.commissions === '') {
                                 this.total_commissions = 0
                             } else {
-                                this.total_commissions = this.number_of_trades * parseInt(this.commissions)
+                                this.total_commissions = numberFormat.format(this.number_of_trades * parseInt(this.commissions))
                             }
                         },
                         calculateR() {
@@ -605,8 +604,15 @@
                             }
                         },
                         calculateMax_Loses_Limit() {
-                            if (this.loss_per_trade !== 0 && !isNaN(this.loss_limit) && this.loss_limit !== 0) {
-                                this.max_loses_limit = (this.loss_limit / (-this.loss_per_trade)).toFixed(2).toLocaleString();
+                            const numberFormat = new Intl.NumberFormat('en-US', {
+                                style: 'decimal',
+                                minimumFractionDigits: 2
+                            });
+                            if (this.loss_per_trade !== 0 || !isNaN(this.loss_limit) && this.loss_limit !== 0) {
+                               let value  = numberFormat.format(this.loss_limit / (-this.loss_per_trade))
+                                if(isFinite(value)){
+                                    this.max_loses_limit =value
+                                }
                             } else {
                                 this.max_loses_limit = 0;
                             }
