@@ -26,6 +26,9 @@ input[type="number"] {
 .form-control {
     padding-right: 64px !important;
 }
+input[type="number"]::after {
+    content: ',000' !important;
+}
 
 .currency-suffix {
     position: absolute;

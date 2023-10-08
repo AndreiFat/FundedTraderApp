@@ -27,6 +27,7 @@
                                     <label for="loss-limit" class="fs-5 form-label">Loss Limit</label>
                                     <div class="position-relative">
                                         <input type="number"
+                                               step="0.1"
                                                class="fs-5 fw-medium text-secondary bg-secondary form-control"
                                                id="loss-limit"
                                                name="loss-limit"
@@ -328,7 +329,6 @@
         @push('vue-app')
             <script>
                 function formatWithCommas(input) {
-
                 }
 
                 // Prevent form submission when Enter key is pressed in the input field
@@ -462,7 +462,13 @@
                             console.log("Loss Limit " + this.loss_per_trade)
 
                             if (this.loss_per_trade !== 0 || !isNaN(this.loss_per_trade)) {
-                                this.risk_per_trade = ((this.loss_limit / this.loss_per_trade)).toFixed(2)
+                                let value = (this.loss_limit / this.loss_per_trade)
+                                if(isFinite(value)){
+                                    this.risk_per_trade = value.toFixed(2)
+                                }
+                                else{
+                                    this.risk_per_trade = 0
+                                }
                                 if (this.risk_per_trade > 0) {
                                     document.querySelector('#risk_per_trade').classList.remove('bg-danger');
                                     document.querySelector('#risk_per_trade').classList.add('bg-success');
