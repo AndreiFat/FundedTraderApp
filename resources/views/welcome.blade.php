@@ -103,10 +103,7 @@
             {{--            </div>--}}
         </div>
         <footer class="mt-5 pt-5">
-            <p class="fs-3 text-center fw-medium">For support please email us</p>
-            <div class="d-flex justify-content-center px-2">
-                <p class="fs-4 text-center fw-bold bg-primary text-white py-2 px-5 rounded-3">info@fundedtraderapp.com</p>
-            </div>
+            <p class="fs-3 text-center fw-medium">For support please email us at info@fundedtraderapp.com</p>
             <p class="mt-2 mt-md-5 fs-5 text-muted text-center">
                 © Copyright 2023 www.fundedtraderapp.com
             </p>

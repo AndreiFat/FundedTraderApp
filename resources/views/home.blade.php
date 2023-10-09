@@ -83,7 +83,7 @@
                                 <p class="my-auto fs-5">Risk Per Trade</p>
                                 <p id="risk_per_trade"
                                    class="fs-5 mb-0 fw-semibold d-block ms-auto bg-danger py-2 px-3 rounded-3">
-                                    {(risk_per_trade)} USD</p>
+                                    {(risk_per_trade)} %</p>
                             </div>
                             <div class="d-flex mb-2">
                                 <p class="my-auto fs-5">Profit Per Trade</p>
@@ -459,7 +459,7 @@
                         },
                         calculateRisk_Per_Trade() {
                             if (this.loss_per_trade !== 0 || !isNaN(this.loss_per_trade)) {
-                                let value = (this.loss_limit / this.loss_per_trade)
+                                let value = (this.loss_per_trade / this.loss_limit) * 100
                                 if(isFinite(value)){
                                     this.risk_per_trade = value.toFixed(2)
                                 }
@@ -583,7 +583,7 @@
                                 minimumFractionDigits: 2
                             });
                             if (this.wins_value !== 0 || this.loses_value !== 0 || this.number_of_trades !== 0) {
-                                this.net_profit_loss = (parseFloat(this.wins_value) + parseFloat(this.loses_value) - (this.number_of_trades)).toFixed(2)
+                                this.net_profit_loss = (parseFloat(this.wins_value) + parseFloat(this.loses_value) - (this.total_commissions)).toFixed(2)
                                 this.net_profit_loss_show = numberFormat.format(this.net_profit_loss)
                                 if (this.net_profit_loss > 0) {
                                     document.querySelector('#net_profit_loss').classList.remove('bg-danger');
@@ -609,7 +609,7 @@
                                 minimumFractionDigits: 2
                             });
                             if (this.loss_per_trade !== 0 || !isNaN(this.loss_limit) && this.loss_limit !== 0) {
-                               let value  = numberFormat.format(this.loss_limit / (-this.loss_per_trade))
+                               let value  = numberFormat.format(this.loss_per_trade / (-this.loss_limit))
                                 if(isFinite(value)){
                                     this.max_loses_limit =value
                                 }
@@ -640,15 +640,16 @@
 
                         wins: ['calculateNumber_of_Trades', 'calculateWins_Value', 'calculateWin_Rate'],
                         loses: ['calculateNumber_of_Trades', 'calculateLoses_Value'],
-                        commissions: ['calculateLoss_Per_Trade', 'calculateProfit_Per_Trade', 'calculateTotal_Commissions'],
+                        commissions: ['calculateLoss_Per_Trade', 'calculateProfit_Per_Trade', 'calculateTotal_Commissions', 'calculateNet_Profit_Loss'],
 
                         net_profit_loss: ['calculateRolling_Loss'],
                         wins_value: ['calculateNet_Profit_Loss', 'calculateWins_Value'],
                         loses_value: ['calculateNet_Profit_Loss', 'calculateLoses_Value'],
 
                         loss_per_trade: ['calculateMax_Loses_Limit', 'calculateRisk_Per_Trade'],
+                        total_commissions:['calculateNet_Profit_Loss'],
 
-                        number_of_trades: ['calculateNumber_of_Trades', 'calculateWin_Rate', 'calculateTotal_Commissions', 'calculateNet_Profit_Loss','calculateRisk_Per_Trade']
+                        number_of_trades: ['calculateNumber_of_Trades', 'calculateWin_Rate', 'calculateTotal_Commissions','calculateRisk_Per_Trade']
                     },
                     deep: true,
                     delimiters: ['{(', ')}']
