@@ -76,7 +76,7 @@
                                 <p class="my-auto fs-5">Loss Per Trade</p>
                                 <p id="loss_per_trade"
                                    class="fs-5 mb-0 fw-semibold d-block ms-auto bg-danger py-2 px-3 rounded-3">
-                                    {(loss_per_trade)}
+                                    {(loss_per_trade_show)}
                                     USD</p>
                             </div>
                             <div class="d-flex mb-2 ">
@@ -384,6 +384,7 @@
                             wins_value_show: 0,
                             loses_value_show: 0,
                             net_profit_loss_show: 0,
+                            loss_per_trade_show: 0
                         }
                     },
                     methods: {
@@ -447,7 +448,8 @@
                             if (this.tick_pip_value === 0 || isNaN(this.tick_pip_value)) {
                                 this.loss_per_trade = 0
                             } else {
-                                this.loss_per_trade = numberFormat.format(this.quantity * (-this.tick_pip_value) * this.stop_loss - (-this.quantity * this.commissions))
+                                this.loss_per_trade = this.quantity * (-this.tick_pip_value) * this.stop_loss - (-this.quantity * this.commissions)
+                                this.loss_per_trade_show = numberFormat.format(this.loss_per_trade)
                                 if (this.loss_per_trade > 0) {
                                     document.querySelector('#loss_per_trade').classList.remove('bg-danger');
                                     document.querySelector('#loss_per_trade').classList.add('bg-success');
@@ -608,11 +610,8 @@
                                 style: 'decimal',
                                 minimumFractionDigits: 2
                             });
-                            if (this.loss_per_trade !== 0 || !isNaN(this.loss_limit) && this.loss_limit !== 0) {
-                                let value = numberFormat.format(this.loss_limit / (-this.loss_per_trade))
-                                if (isFinite(value)) {
-                                    this.max_loses_limit = value
-                                }
+                            if (this.loss_per_trade !== 0 || !isNaN(this.loss_limit) || this.loss_limit !== 0) {
+                                this.max_loses_limit = numberFormat.format(this.loss_limit / (-this.loss_per_trade))
                             } else {
                                 this.max_loses_limit = 0;
                             }
