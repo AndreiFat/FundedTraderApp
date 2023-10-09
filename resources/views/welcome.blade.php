@@ -56,8 +56,8 @@
                 <a href="{{ url('/home') }}"
                    class="fs-4 text-decoration-none text-dark-emphasis nav-buttons me-3">Dashboard</a>
                 @if(auth()->user()->paid_service ==0 )
-                <a href="{{ url('/payment') }}"
-                   class="fs-4 text-decoration-none text-dark-emphasis nav-buttons">Payment</a>
+                    <a href="{{ url('/payment') }}"
+                       class="fs-4 text-decoration-none text-dark-emphasis nav-buttons">Buy Now</a>
                 @endif
             @else
                 <a href="{{ route('login') }}"
