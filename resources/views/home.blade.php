@@ -381,8 +381,8 @@
                             loses_value: 0,
 
                             // Values
-                            wins_value_show:0,
-                            loses_value_show:0,
+                            wins_value_show: 0,
+                            loses_value_show: 0,
                             net_profit_loss_show: 0,
                         }
                     },
@@ -394,36 +394,36 @@
                         handleQuantity(event) {
                             this.quantity = event.target.value
 
-                            if(isNaN(this.quantity) || this.quantity===''){
-                                this.position_size=0
-                            }else{
+                            if (isNaN(this.quantity) || this.quantity === '') {
+                                this.position_size = 0
+                            } else {
                                 this.position_size = this.quantity
 
                             }
                         },
                         handleStop_Loss(event) {
                             this.stop_loss = event.target.value
-                            if(isNaN(this.stop_loss) || this.stop_loss===''){
-                                this.stop_loss_value=0
-                            }else{
+                            if (isNaN(this.stop_loss) || this.stop_loss === '') {
+                                this.stop_loss_value = 0
+                            } else {
                                 this.stop_loss_value = this.stop_loss
                             }
                         },
                         handleTick_Pip_Value(event) {
                             this.tick_pip_value = parseFloat(event.target.value)
-                            if(!isNaN(this.tick_pip_value)){
+                            if (!isNaN(this.tick_pip_value)) {
                                 this.tick_pip_value_show = this.tick_pip_value
-                            }else{
-                                this.tick_pip_value_show=0
+                            } else {
+                                this.tick_pip_value_show = 0
                             }
                             //console.log(this.tick_pip_value)
                         },
                         handleProfit_Target(event) {
                             this.profit_target = event.target.value
                             this.take_profit = this.profit_target
-                            if(isNaN(this.profit_target) || this.profit_target===''){
+                            if (isNaN(this.profit_target) || this.profit_target === '') {
                                 this.take_profit = 0
-                            }else{
+                            } else {
                                 this.take_profit = this.profit_target
                             }
                         },
@@ -444,9 +444,9 @@
                                 style: 'decimal',
                                 minimumFractionDigits: 2
                             });
-                            if(this.tick_pip_value===0 || isNaN(this.tick_pip_value)){
+                            if (this.tick_pip_value === 0 || isNaN(this.tick_pip_value)) {
                                 this.loss_per_trade = 0
-                            }else{
+                            } else {
                                 this.loss_per_trade = numberFormat.format(this.quantity * (-this.tick_pip_value) * this.stop_loss - (-this.quantity * this.commissions))
                                 if (this.loss_per_trade > 0) {
                                     document.querySelector('#loss_per_trade').classList.remove('bg-danger');
@@ -460,7 +460,7 @@
                         calculateRisk_Per_Trade() {
                             if (this.loss_per_trade !== 0 || !isNaN(this.loss_per_trade)) {
                                 let value = (this.loss_per_trade / this.loss_limit) * 100
-                                if(isFinite(value)){
+                                if (isFinite(value)) {
                                     this.risk_per_trade = value.toFixed(2)
                                 }
                                 if (this.risk_per_trade > 0) {
@@ -470,7 +470,7 @@
                                     document.querySelector('#risk_per_trade').classList.remove('bg-success');
                                     document.querySelector('#risk_per_trade').classList.add('bg-danger');
                                 }
-                            }else{
+                            } else {
                                 this.risk_per_trade = 0;
                             }
                         },
@@ -479,17 +479,17 @@
                                 style: 'decimal',
                                 minimumFractionDigits: 2
                             });
-                            if(this.tick_pip_value===0){
-                                this.profit_per_trade=0;
-                            }else{
+                            if (this.tick_pip_value === 0) {
+                                this.profit_per_trade = 0;
+                            } else {
                                 this.profit_per_trade = numberFormat.format(this.quantity * this.tick_pip_value * this.profit_target - (this.quantity * this.commissions))
 
                                 if (this.profit_per_trade > 0) {
-                                    document.querySelector('#profit_per_trade').classList.remove('bg-danger');
-                                    document.querySelector('#profit_per_trade').classList.add('bg-success');
-                                } else {
                                     document.querySelector('#profit_per_trade').classList.remove('bg-success');
                                     document.querySelector('#profit_per_trade').classList.add('bg-danger');
+                                } else {
+                                    document.querySelector('#profit_per_trade').classList.remove('bg-danger');
+                                    document.querySelector('#profit_per_trade').classList.add('bg-success');
                                 }
                             }
 
@@ -609,9 +609,9 @@
                                 minimumFractionDigits: 2
                             });
                             if (this.loss_per_trade !== 0 || !isNaN(this.loss_limit) && this.loss_limit !== 0) {
-                               let value  = numberFormat.format(this.loss_per_trade / (-this.loss_limit))
-                                if(isFinite(value)){
-                                    this.max_loses_limit =value
+                                let value = numberFormat.format(this.loss_per_trade / (-this.loss_limit))
+                                if (isFinite(value)) {
+                                    this.max_loses_limit = value
                                 }
                             } else {
                                 this.max_loses_limit = 0;
@@ -631,7 +631,7 @@
                         },
                     },
                     watch: {
-                        loss_limit: ['calculateRolling_Loss', 'calculateMax_Loses_Limit','calculateRisk_Per_Trade'],
+                        loss_limit: ['calculateRolling_Loss', 'calculateMax_Loses_Limit', 'calculateRisk_Per_Trade'],
 
                         quantity: ['calculateLoss_Per_Trade', 'calculateProfit_Per_Trade', 'calculateWins_Value', 'calculateLoses_Value'],
                         stop_loss: ['calculateLoss_Per_Trade', 'calculateLoses_Value', 'calculateR'],
@@ -647,9 +647,9 @@
                         loses_value: ['calculateNet_Profit_Loss', 'calculateLoses_Value'],
 
                         loss_per_trade: ['calculateMax_Loses_Limit', 'calculateRisk_Per_Trade'],
-                        total_commissions:['calculateNet_Profit_Loss'],
+                        total_commissions: ['calculateNet_Profit_Loss'],
 
-                        number_of_trades: ['calculateNumber_of_Trades', 'calculateWin_Rate', 'calculateTotal_Commissions','calculateRisk_Per_Trade']
+                        number_of_trades: ['calculateNumber_of_Trades', 'calculateWin_Rate', 'calculateTotal_Commissions', 'calculateRisk_Per_Trade']
                     },
                     deep: true,
                     delimiters: ['{(', ')}']
