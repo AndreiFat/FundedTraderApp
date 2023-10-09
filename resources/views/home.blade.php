@@ -611,7 +611,7 @@
                                 minimumFractionDigits: 2
                             });
                             if (this.loss_per_trade !== 0 || !isNaN(this.loss_limit) || this.loss_limit !== 0) {
-                                this.max_loses_limit = numberFormat.format(this.loss_limit / (-this.loss_per_trade))
+                                this.max_loses_limit = numberFormat.format(this.loss_limit / (this.loss_per_trade))
                             } else {
                                 this.max_loses_limit = 0;
                             }
