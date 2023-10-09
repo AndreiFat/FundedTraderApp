@@ -484,7 +484,7 @@
                             } else {
                                 this.profit_per_trade = numberFormat.format(this.quantity * this.tick_pip_value * this.profit_target - (this.quantity * this.commissions))
 
-                                if (this.profit_per_trade > 0) {
+                                if (this.profit_per_trade < 0) {
                                     document.querySelector('#profit_per_trade').classList.remove('bg-success');
                                     document.querySelector('#profit_per_trade').classList.add('bg-danger');
                                 } else {
