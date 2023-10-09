@@ -522,7 +522,7 @@
                             } else {
                                 value = this.profit_target / this.stop_loss
                                 if (isFinite(value)) {
-                                    this.R = value
+                                    this.R = value.toFixed(3)
                                 }
                             }
                         },
