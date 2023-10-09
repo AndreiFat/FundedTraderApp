@@ -609,7 +609,7 @@
                                 minimumFractionDigits: 2
                             });
                             if (this.loss_per_trade !== 0 || !isNaN(this.loss_limit) && this.loss_limit !== 0) {
-                                let value = numberFormat.format(this.loss_per_trade / (-this.loss_limit))
+                                let value = numberFormat.format(this.loss_limit / (-this.loss_per_trade))
                                 if (isFinite(value)) {
                                     this.max_loses_limit = value
                                 }
