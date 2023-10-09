@@ -510,7 +510,7 @@
                             if (isNaN(this.commissions) || this.commissions === '') {
                                 this.total_commissions = 0
                             } else {
-                                this.total_commissions = numberFormat.format(this.number_of_trades * parseInt(this.commissions))
+                                this.total_commissions = numberFormat.format(this.number_of_trades * parseFloat(this.commissions))
                             }
                         },
                         calculateR() {
