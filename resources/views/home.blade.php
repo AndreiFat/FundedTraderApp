@@ -448,7 +448,7 @@
                             if (this.tick_pip_value === 0 || isNaN(this.tick_pip_value)) {
                                 this.loss_per_trade = 0
                             } else {
-                                this.loss_per_trade = this.quantity * (-this.tick_pip_value) * this.stop_loss - (-this.quantity * this.commissions)
+                                this.loss_per_trade = this.quantity * this.tick_pip_value * -(this.stop_loss) - (this.quantity * this.commissions)
                                 this.loss_per_trade_show = numberFormat.format(this.loss_per_trade)
                                 if (this.loss_per_trade > 0) {
                                     document.querySelector('#loss_per_trade').classList.remove('bg-danger');
