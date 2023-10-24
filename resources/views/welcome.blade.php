@@ -71,7 +71,7 @@
         @endif
     </div>
 
-    <div class="row pb-2 pt-0 justify-content-center">
+    <div class="row pt-0 justify-content-center">
         <a class="navbar-brand text-center my-4 mb-sm-0" href="{{ url('/') }}">
             <img src="{{asset('/assets/verticalLogo.png')}}" height="150px" alt="">
         </a>
@@ -83,7 +83,7 @@
             </div>
             <div class="row justify-content-center align-items-center mb-0 mb-md-5">
                 <div class="col">
-                    <a class="fs-4 px-5 py-2 my-4 btn btn-primary"
+                    <a class="fs-4 px-5 pt-2 mt-4 btn btn-primary"
                        href="{{ route('payment') }}">{{ __('Get Started') }}</a>
                 </div>
             </div>
@@ -102,16 +102,212 @@
             {{--                </div>--}}
             {{--            </div>--}}
         </div>
-        <footer class="mt-5 pt-5">
-            <p class="fs-3 text-center fw-medium">For support please email us at info@fundedtraderapp.com</p>
-            <p class="mt-2 mt-md-5 fs-5 text-muted text-center">
-                © Copyright 2023 www.fundedtraderapp.com
-            </p>
-        </footer>
+    </div>
+
+</div>
+<div class="container-fluid ">
+    <div class="container pb-2 pb-xl-5">
+        <div class="row py-3 justify-content-center">
+            <div class="col col-xl-8 p-0">
+                <div class="video-section" style="height: 50vh">
+                    <iframe class="" width="100%" height="100%"
+                            src="https://www.youtube.com/embed/mG1Iy7Qt80Y?si=Pek9SpSUowO14nej"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{--<p class="fs-3 text-center fw-medium text-white">For support please email us at info@fundedtraderapp.com</p>--}}
+
+<div class="container">
+    <div class="row pb-5">
+        <div class="col">
+            <p class="mb-1 fs-1 fw-bold text-center faq">FAQs</p>
+            <div class="accordion fs-4 accordion-flush bg-transparent" id="accordionFAQ">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button fs-3 p-4" type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            What makes the FTA tool so useful?
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse " data-bs-parent="#accordionFAQ">
+                        <div class="accordion-body">
+                            It’s ease of use in back testing, and creating hypothetical Money Management models. The
+                            newer trader who is trying to pass a prop firm evaluation will find it to be simple, fast
+                            and intuitive. It can be used it on your desktop computer or smartphone.
+
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button fs-3 p-4 collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Does FTA give trade entry or exit signals?
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                        <div class="accordion-body">
+                            The Funded Trader App does NOT generate trade entry or exit signals, but takes the all
+                            important step of helping you assess the right stop loss and take profit levels, after your
+                            entry signals put you in the trade.
+                            <br>
+                            FTA believes that every trader should decide upon a trading methodology based on their
+                            account size, risk tolerance and preferred trading style.
+
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button fs-3 p-4 collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Does FTA Guarantee that I will pass my funded trader challenge, evaluation, trial, audition,
+                            etc.?
+
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                        <div class="accordion-body">
+                            Success in trading ultimately depends on your ability to execute your strategy. Obeying your
+                            stop losses and take profit orders is your responsibility, since we can’t influence that, we
+                            can’t offer guarantees.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button fs-3 p-4 collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            How can this App help me pass and keep my prop accounts?
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                        <div class="accordion-body">
+                            <text class="fw-medium">The FTA tool can help you calculate your:</text>
+                            <ul class="list-group list-group-flush px-2">
+                                <li class="list-group-item">Stop loss levels
+                                </li>
+                                <li class="list-group-item">Take profit levels
+                                </li>
+                                <li class="list-group-item">Risk per trade (in dollars and percentage) and Profit per
+                                    trade based on your parameters
+                                </li>
+                                <li class="list-group-item">Prudent position sizing</li>
+                                <li class="list-group-item">Historical and hypothetical win rate in the context of your
+                                    risk/take profit levels
+                                </li>
+                                <li class="list-group-item">Number of consecutive losing trades away you are from losing
+                                    your prop trial or funded account
+                                </li>
+                                <li class="list-group-item">Risk to reward ratios, and estimate which money management
+                                    plan would result in a positive or negative P&L based on your inputs
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button fs-3 p-4 collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            Why is Money Management important?
+                        </button>
+                    </h2>
+                    <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                        <div class="accordion-body">
+                            Money Management encompasses every facet of your trading, and ignoring it is the leading
+                            cause of trader failure. Charles Schwab and TD Ameritrade have done studies indicating
+                            that <strong>85%</strong> of traders fail due to lack of money management. Other studies
+                            suggest that
+                            poor ‘risk management’ (an integral part of money management) accounts for a
+                            <strong>90%+</strong>
+                            failure rate.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button fs-3 p-4 collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                            Is $6.99 an ongoing subscription?
+                        </button>
+                    </h2>
+                    <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                        <div class="accordion-body">
+                            No. The cost for the App is $6.99, which is a One-Time cost. There are no additional or
+                            ongoing fees.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button fs-3 p-4 collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                            Do yo have a tutorial or videos?
+                        </button>
+                    </h2>
+                    <div id="collapseSeven" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                        <div class="accordion-body">
+                            We have video tutorials on YouTube, and a <strong>FREE</strong> Money Management book on
+                            Amazon “Money
+                            Management for The Funded Trader - How To Pass & Keep Your Funded Trader Accounts”
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
-
+<footer class="py-5 footer-background text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-xl-4 mb-3 mb-xl-0">
+                <div class="d-flex">
+                    <a class="navbar-brand text-center mb-sm-0 " href="{{ url('/') }}">
+                        <img class="rounded-4 p-2 bg-white" src="{{asset('/assets/favicon.png')}}" height="92"
+                             alt="">
+                    </a>
+                    <p class="ms-4 my-auto fs-4 text-white">
+                        © Copyright 2023 <br> FUNDED TRADER APP
+                    </p>
+                </div>
+            </div>
+            <div class="col-12 col-xl-4 mb-3 mb-xl-0">
+                <p class="fw-medium fs-4 text-white">
+                    SOCIAL LINKS
+                </p>
+                <a class="text-white"
+                   href="https://www.facebook.com/profile.php?id=100079580580704">
+                    <i
+                        class="fa-brands fa-2x fa-facebook"></i></a>
+                <a class="ms-4 text-white" href="https://www.twitter.com/FundedTraderApp">
+                    <i
+                        class="fa-brands fa-2x fa-x-twitter"></i></a>
+                <a class="ms-4 text-white" href="https://www.tiktok.com/@fundedtraderapp">
+                    <i class="fa-brands fa-2x fa-tiktok"></i></a>
+                <a class="ms-4 text-white"
+                   href="https://www.youtube.com/channel/UCTCGZt5SwNtocvuE7YwtEgQ">
+                    <i class="fa-brands fa-2x fa-youtube"></i></a>
+                <a class="ms-4 text-white"
+                   href="https://www.youtube.com/channel/UCTCGZt5SwNtocvuE7YwtEgQ">
+                    <i class="fa-brands fa-2x fa-amazon"></i></a>
+            </div>
+            <div class="col-12 col-xl-4">
+                <p class="fs-4 mb-1 fw-medium">
+                    SUPPORT
+                </p>
+                <p class="fs-4">Email us at info@fundedtraderapp.com</p>
+            </div>
+        </div>
+    </div>
+</footer>
 <script>
     function animateCount(element, target, duration, addPercent) {
         let start = 0;
