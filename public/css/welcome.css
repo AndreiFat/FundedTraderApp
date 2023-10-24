@@ -23,8 +23,44 @@
         padding-left: 8px;
         padding-right: 8px;
     }
+
+    .faq {
+        font-size: 32px !important;
+    }
+
+    .video-section {
+        height: 315px !important;
+    }
 }
 
-.bg-primary{
+.bg-primary {
     background-color: var(--main-bg-color) !important;
+}
+
+.video-section {
+    height: 50vh;
+}
+
+.footer-background {
+    background: rgb(23, 23, 23);
+}
+
+a {
+    text-decoration: none;
+}
+
+
+.accordion-button:not(.collapsed) {
+    color: white !important;
+    background: rgb(23, 23, 23) !important;
+}
+
+.accordion-button:focus {
+    border-color: rgb(72, 72, 72) !important;
+    box-shadow: 0 0 0 rgb(75, 75, 75) !important;
+}
+
+.accordion-button:active {
+    border-color: rgb(72, 72, 72) !important;
+    box-shadow: rgb(72, 72, 72) !important;
 }
