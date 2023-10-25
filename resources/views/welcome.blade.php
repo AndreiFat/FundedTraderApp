@@ -296,8 +296,8 @@
                    href="https://www.youtube.com/channel/UCTCGZt5SwNtocvuE7YwtEgQ">
                     <i class="fa-brands fa-2x fa-youtube"></i></a>
                 <a class="ms-4 text-white"
-                   href="https://www.youtube.com/channel/UCTCGZt5SwNtocvuE7YwtEgQ">
-                    <i class="fa-brands fa-2x fa-amazon"></i></a>
+                   href="https://form.jotform.com/232975253534663">
+                    <i class="fa-solid fa-2x fa-book"></i></a>
             </div>
             <div class="col-12 col-xl-4">
                 <p class="fs-4 mb-1 fw-medium">
