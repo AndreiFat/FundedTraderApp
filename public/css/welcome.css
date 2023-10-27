@@ -52,7 +52,7 @@ a {
 
 .accordion-button:not(.collapsed) {
     color: white !important;
-    background: rgba(33, 37, 41, 0.75);
+    background: rgb(23, 23, 23);
 !important;
 }
 
