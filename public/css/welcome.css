@@ -52,7 +52,8 @@ a {
 
 .accordion-button:not(.collapsed) {
     color: white !important;
-    background: rgb(23, 23, 23) !important;
+    background: rgba(33, 37, 41, 0.75);
+!important;
 }
 
 .accordion-button:focus {
@@ -63,4 +64,8 @@ a {
 .accordion-button:active {
     border-color: rgb(72, 72, 72) !important;
     box-shadow: rgb(72, 72, 72) !important;
+}
+
+.bg-dark {
+    background: rgb(23, 23, 23) !important;
 }
