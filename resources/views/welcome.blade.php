@@ -61,7 +61,7 @@
                 @endif
                 <a href="#faq_section"
                    class="fs-4 text-decoration-none text-dark-emphasis me-4 nav-buttons ">FAQs</a>
-                <a href="https://form.jotform.com/230847032503650"
+                <a href="#free-book"
                    class="fs-4 text-decoration-none text-dark-emphasis me-4 nav-buttons">Get Free Book</a>
             @else
                 <a href="{{ route('login') }}"
@@ -73,7 +73,7 @@
                 @endif
                 <a href="#faq_section"
                    class="fs-4 text-decoration-none text-dark-emphasis me-4 nav-buttons ">FAQs</a>
-                <a href="https://form.jotform.com/230847032503650"
+                <a href="#free-book"
                    class="fs-4 text-decoration-none text-dark-emphasis me-4 nav-buttons">Get Free Book</a>
             @endauth
         @endif
@@ -113,187 +113,200 @@
     </div>
 
 </div>
-<div class="container-fluid ">
-    <div class="container pb-2 pb-xl-5">
-        <div class="row py-3 justify-content-center">
-            <div class="col col-xl-8 p-0">
-                <div class="video-section" style="height: 50vh">
-                    <iframe class="" width="100%" height="100%"
-                            src="https://www.youtube.com/embed/dDdjWYYsu8M?si=xMGi59NEmwJ8XSSG"
-                            title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 {{--<p class="fs-3 text-center fw-medium text-white">For support please email us at info@fundedtraderapp.com</p>--}}
 
-<iframe id="JotFormIFrame-230847032503650" class="my-4 mb-5" title="Download Your Free e-book"
-        onload="window.parent.scrollTo(0,0)"
-        allowtransparency="true" allowfullscreen="true" allow="geolocation; microphone; camera"
-        src="https://form.jotform.com/230847032503650" frameborder="0"
-        style="min-width:100%;max-width:100%;max-height:900px!important;border:none;" scrolling="no"></iframe>
+<div class="container py-2 py-xl-5">
+    <div class="row py-3 justify-content-center">
+        <div class="col col-xl-8 p-0">
+            <div class="video-section" style="height: 50vh">
+                <iframe class="" width="100%" height="100%"
+                        src="https://www.youtube.com/embed/dDdjWYYsu8M?si=xMGi59NEmwJ8XSSG"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</div>
 
-<div id="faq_section" class="container mt-2">
-    <div class="row pb-5">
-        <div class="col">
-            <p class="mb-1 fs-1 fw-bold text-center faq">FAQs</p>
-            <div class="accordion fs-4 accordion-flush bg-transparent" id="accordionFAQ">
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button fs-3 p-4" type="button"
-                                data-bs-toggle="collapse"
-                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            What makes the FTA tool so useful?
-                        </button>
-                    </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse " data-bs-parent="#accordionFAQ">
-                        <div class="accordion-body">
-                            It’s ease of use in back testing, and creating hypothetical Money Management models. The
-                            newer trader who is trying to pass a prop firm evaluation will find it to be simple, fast
-                            and intuitive. It can be used it on your desktop computer or smartphone.
+<div class="container-fluid p-0 bg-dark">
+    <div id="faq_section" class="container pb-3">
+        <div class="row py-5">
+            <div class="col">
+                <p class="mb-2 fs-1 fw-bold text-center faq text-white">FAQs</p>
+                <div class="accordion fs-4 accordion-flush bg-transparent" id="accordionFAQ">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button fs-3 p-4" type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                What makes the FTA tool so useful?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse " data-bs-parent="#accordionFAQ">
+                            <div class="accordion-body">
+                                It’s ease of use in back testing, and creating hypothetical Money Management models. The
+                                newer trader who is trying to pass a prop firm evaluation will find it to be simple,
+                                fast
+                                and intuitive. It can be used it on your desktop computer or smartphone.
 
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button fs-3 p-4 collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            Does FTA give trade entry or exit signals?
-                        </button>
-                    </h2>
-                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
-                        <div class="accordion-body">
-                            The Funded Trader App does NOT generate trade entry or exit signals, but takes the all
-                            important step of helping you assess the right stop loss and take profit levels, after your
-                            entry signals put you in the trade.
-                            <br>
-                            FTA believes that every trader should decide upon a trading methodology based on their
-                            account size, risk tolerance and preferred trading style.
-
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button fs-3 p-4 collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            Does FTA Guarantee that I will pass my funded trader challenge, evaluation, trial, audition,
-                            etc.?
-
-                        </button>
-                    </h2>
-                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
-                        <div class="accordion-body">
-                            Success in trading ultimately depends on your ability to execute your strategy. Obeying your
-                            stop losses and take profit orders is your responsibility, since we can’t influence that, we
-                            can’t offer guarantees.
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button fs-3 p-4 collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                            How can this App help me pass and keep my prop accounts?
-                        </button>
-                    </h2>
-                    <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
-                        <div class="accordion-body">
-                            <text class="fw-medium">The FTA tool can help you calculate your:</text>
-                            <ul class="list-group list-group-flush px-2">
-                                <li class="list-group-item">Stop loss levels
-                                </li>
-                                <li class="list-group-item">Take profit levels
-                                </li>
-                                <li class="list-group-item">Risk per trade (in dollars and percentage) and Profit per
-                                    trade based on your parameters
-                                </li>
-                                <li class="list-group-item">Prudent position sizing</li>
-                                <li class="list-group-item">Historical and hypothetical win rate in the context of your
-                                    risk/take profit levels
-                                </li>
-                                <li class="list-group-item">Number of consecutive losing trades away you are from losing
-                                    your prop trial or funded account
-                                </li>
-                                <li class="list-group-item">Risk to reward ratios, and estimate which money management
-                                    plan would result in a positive or negative P&L based on your inputs
-                                </li>
-                            </ul>
-                            <br>
-                            <p class="px-2">
-                                <text>
-                                    It can also assist you with back testing your trading strategy and/or performance,
-                                    to
-                                    identify potential areas for improvement moving forward.
-                                </text>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button fs-3 p-4 collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Does FTA give trade entry or exit signals?
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                            <div class="accordion-body">
+                                The Funded Trader App does NOT generate trade entry or exit signals, but takes the all
+                                important step of helping you assess the right stop loss and take profit levels, after
+                                your
+                                entry signals put you in the trade.
                                 <br>
+                                FTA believes that every trader should decide upon a trading methodology based on their
+                                account size, risk tolerance and preferred trading style.
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button fs-3 p-4 collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Does FTA Guarantee that I will pass my funded trader challenge, evaluation, trial,
+                                audition,
+                                etc.?
+
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                            <div class="accordion-body">
+                                Success in trading ultimately depends on your ability to execute your strategy. Obeying
+                                your
+                                stop losses and take profit orders is your responsibility, since we can’t influence
+                                that, we
+                                can’t offer guarantees.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button fs-3 p-4 collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                How can this App help me pass and keep my prop accounts?
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                            <div class="accordion-body">
+                                <text class="fw-medium">The FTA tool can help you calculate your:</text>
+                                <ul class="list-group list-group-flush px-2">
+                                    <li class="list-group-item">Stop loss levels
+                                    </li>
+                                    <li class="list-group-item">Take profit levels
+                                    </li>
+                                    <li class="list-group-item">Risk per trade (in dollars and percentage) and Profit
+                                        per
+                                        trade based on your parameters
+                                    </li>
+                                    <li class="list-group-item">Prudent position sizing</li>
+                                    <li class="list-group-item">Historical and hypothetical win rate in the context of
+                                        your
+                                        risk/take profit levels
+                                    </li>
+                                    <li class="list-group-item">Number of consecutive losing trades away you are from
+                                        losing
+                                        your prop trial or funded account
+                                    </li>
+                                    <li class="list-group-item">Risk to reward ratios, and estimate which money
+                                        management
+                                        plan would result in a positive or negative P&L based on your inputs
+                                    </li>
+                                </ul>
                                 <br>
-                                <text>When you understand those parameters, your awareness and emphasis on
-                                    money management
-                                    increases. We believe that leads to a more confident, decisive trader.
-                                </text>
-                            </p>
+                                <p class="px-2">
+                                    <text>
+                                        It can also assist you with back testing your trading strategy and/or
+                                        performance,
+                                        to
+                                        identify potential areas for improvement moving forward.
+                                    </text>
+                                    <br>
+                                    <br>
+                                    <text>When you understand those parameters, your awareness and emphasis on
+                                        money management
+                                        increases. We believe that leads to a more confident, decisive trader.
+                                    </text>
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button fs-3 p-4 collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                            Why is Money Management important?
-                        </button>
-                    </h2>
-                    <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
-                        <div class="accordion-body">
-                            Money Management encompasses every facet of your trading, and ignoring it is the leading
-                            cause of trader failure. Charles Schwab and TD Ameritrade have done studies indicating
-                            that <strong>85%</strong> of traders fail due to lack of money management. Other studies
-                            suggest that
-                            poor ‘risk management’ (an integral part of money management) accounts for a
-                            <strong>90%+</strong>
-                            failure rate.
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button fs-3 p-4 collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                Why is Money Management important?
+                            </button>
+                        </h2>
+                        <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                            <div class="accordion-body">
+                                Money Management encompasses every facet of your trading, and ignoring it is the leading
+                                cause of trader failure. Charles Schwab and TD Ameritrade have done studies indicating
+                                that <strong>85%</strong> of traders fail due to lack of money management. Other studies
+                                suggest that
+                                poor ‘risk management’ (an integral part of money management) accounts for a
+                                <strong>90%+</strong>
+                                failure rate.
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button fs-3 p-4 collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                            Is $6.99 an ongoing subscription?
-                        </button>
-                    </h2>
-                    <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
-                        <div class="accordion-body">
-                            No. The cost for the App is $6.99, which is a One-Time cost. There are no additional or
-                            ongoing fees.
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button fs-3 p-4 collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                Is $6.99 an ongoing subscription?
+                            </button>
+                        </h2>
+                        <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                            <div class="accordion-body">
+                                No. The cost for the App is $6.99, which is a One-Time cost. There are no additional or
+                                ongoing fees.
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button fs-3 p-4 collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                            Do yo have a tutorial or videos?
-                        </button>
-                    </h2>
-                    <div id="collapseSeven" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
-                        <div class="accordion-body">
-                            We have video tutorials on YouTube, and a <strong>FREE</strong> Money Management book on
-                            Amazon “Money
-                            Management for The Funded Trader - How To Pass & Keep Your Funded Trader Accounts”
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button fs-3 p-4 collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                Do yo have a tutorial or videos?
+                            </button>
+                        </h2>
+                        <div id="collapseSeven" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                            <div class="accordion-body">
+                                We have video tutorials on YouTube, and a <strong>FREE</strong> Money Management book on
+                                Amazon “Money
+                                Management for The Funded Trader - How To Pass & Keep Your Funded Trader Accounts”
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <div class="container-fluid p-0 bg-white" id="free-book">
+        <div class="container">
+            <iframe id="JotFormIFrame-230847032503650" class="" title="Download Your Free e-book"
+                    onload="window.parent.scrollTo(0,0)"
+                    allowtransparency="true" allowfullscreen="true" allow="geolocation; microphone; camera"
+                    src="https://form.jotform.com/230847032503650" frameborder="0"
+                    style="min-width:100%;max-width:100%;max-height:800px!important;border:none;"
+                    scrolling="no"></iframe>
+        </div>
+    </div>
 </div>
-
-
 <footer class="py-5 footer-background text-white">
     <div class="container">
         <div class="row">
