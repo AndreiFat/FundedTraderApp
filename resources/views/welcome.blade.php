@@ -59,14 +59,22 @@
                     <a href="{{ url('/payment') }}"
                        class="fs-4 text-decoration-none text-dark-emphasis nav-buttons">Buy Now</a>
                 @endif
+                <a href="#faq_section"
+                   class="fs-4 text-decoration-none text-dark-emphasis me-3 nav-buttons fw-medium">FAQs</a>
+                <a href="https://form.jotform.com/232975253534663"
+                   class="fs-4 text-decoration-none text-dark-emphasis me-3 nav-buttons fw-medium">Get Free Book</a>
             @else
                 <a href="{{ route('login') }}"
                    class="fs-4 text-decoration-none text-dark-emphasis me-3 nav-buttons">Log in</a>
 
                 @if (Route::has('register'))
                     <a href="{{ route('register') }}"
-                       class="fs-4 text-decoration-none text-dark-emphasis nav-buttons">Register</a>
+                       class="fs-4 text-decoration-none text-dark-emphasis nav-buttons me-3 ">Register</a>
                 @endif
+                <a href="#faq_section"
+                   class="fs-4 text-decoration-none text-dark-emphasis me-3 nav-buttons fw-medium">FAQs</a>
+                <a href="https://form.jotform.com/232975253534663"
+                   class="fs-4 text-decoration-none text-dark-emphasis me-3 nav-buttons fw-medium">Get Free Book</a>
             @endauth
         @endif
     </div>
@@ -111,7 +119,7 @@
             <div class="col col-xl-8 p-0">
                 <div class="video-section" style="height: 50vh">
                     <iframe class="" width="100%" height="100%"
-                            src="https://www.youtube.com/embed/mG1Iy7Qt80Y?si=Pek9SpSUowO14nej"
+                            src="https://www.youtube.com/embed/dDdjWYYsu8M?si=xMGi59NEmwJ8XSSG"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowfullscreen></iframe>
@@ -122,7 +130,7 @@
 </div>
 {{--<p class="fs-3 text-center fw-medium text-white">For support please email us at info@fundedtraderapp.com</p>--}}
 
-<div class="container">
+<div id="faq_section" class="container">
     <div class="row pb-5">
         <div class="col">
             <p class="mb-1 fs-1 fw-bold text-center faq">FAQs</p>
@@ -209,6 +217,20 @@
                                     plan would result in a positive or negative P&L based on your inputs
                                 </li>
                             </ul>
+                            <br>
+                            <p class="px-2">
+                                <text>
+                                    It can also assist you with back testing your trading strategy and/or performance,
+                                    to
+                                    identify potential areas for improvement moving forward.
+                                </text>
+                                <br>
+                                <br>
+                                <text>When you understand those parameters, your awareness and emphasis on
+                                    money management
+                                    increases. We believe that leads to a more confident, decisive trader.
+                                </text>
+                            </p>
                         </div>
                     </div>
                 </div>
