@@ -61,7 +61,7 @@
                 @endif
                 <a href="#faq_section"
                    class="fs-4 text-decoration-none text-dark-emphasis me-4 nav-buttons ">FAQs</a>
-                <a href="https://form.jotform.com/232975253534663"
+                <a href="https://form.jotform.com/230847032503650"
                    class="fs-4 text-decoration-none text-dark-emphasis me-4 nav-buttons">Get Free Book</a>
             @else
                 <a href="{{ route('login') }}"
@@ -73,7 +73,7 @@
                 @endif
                 <a href="#faq_section"
                    class="fs-4 text-decoration-none text-dark-emphasis me-4 nav-buttons ">FAQs</a>
-                <a href="https://form.jotform.com/232975253534663"
+                <a href="https://form.jotform.com/230847032503650"
                    class="fs-4 text-decoration-none text-dark-emphasis me-4 nav-buttons">Get Free Book</a>
             @endauth
         @endif
@@ -130,7 +130,13 @@
 </div>
 {{--<p class="fs-3 text-center fw-medium text-white">For support please email us at info@fundedtraderapp.com</p>--}}
 
-<div id="faq_section" class="container">
+<iframe id="JotFormIFrame-230847032503650" class="my-4 mb-5" title="Download Your Free e-book"
+        onload="window.parent.scrollTo(0,0)"
+        allowtransparency="true" allowfullscreen="true" allow="geolocation; microphone; camera"
+        src="https://form.jotform.com/230847032503650" frameborder="0"
+        style="min-width:100%;max-width:100%;max-height:900px!important;border:none;" scrolling="no"></iframe>
+
+<div id="faq_section" class="container mt-2">
     <div class="row pb-5">
         <div class="col">
             <p class="mb-1 fs-1 fw-bold text-center faq">FAQs</p>
@@ -287,6 +293,7 @@
     </div>
 </div>
 
+
 <footer class="py-5 footer-background text-white">
     <div class="container">
         <div class="row">
@@ -318,7 +325,7 @@
                    href="https://www.youtube.com/channel/UCTCGZt5SwNtocvuE7YwtEgQ">
                     <i class="fa-brands fa-2x fa-youtube"></i></a>
                 <a class="ms-4 text-white"
-                   href="https://form.jotform.com/232975253534663">
+                   href="https://form.jotform.com/230847032503650">
                     <i class="fa-solid fa-2x fa-book"></i></a>
             </div>
             <div class="col-12 col-xl-4">
@@ -353,7 +360,97 @@
     animateCount(happyTraders, 5, 500, false);
     animateCount(precision, 100, 350, true);
     animateCount(savings, 60, 350, true);
+
+
 </script>
+
+<script type="text/javascript"> var ifr = document.getElementById("JotFormIFrame-230847032503650");
+    if (ifr) {
+        var src = ifr.src;
+        var iframeParams = [];
+        if (window.location.href && window.location.href.indexOf("?") > -1) {
+            iframeParams = iframeParams.concat(window.location.href.substr(window.location.href.indexOf("?") + 1).split('&'));
+        }
+        if (src && src.indexOf("?") > -1) {
+            iframeParams = iframeParams.concat(src.substr(src.indexOf("?") + 1).split("&"));
+            src = src.substr(0, src.indexOf("?"))
+        }
+        iframeParams.push("isIframeEmbed=1");
+        ifr.src = src + "?" + iframeParams.join('&');
+    }
+    window.handleIFrameMessage = function (e) {
+        if (typeof e.data === 'object') {
+            return;
+        }
+        var args = e.data.split(":");
+        if (args.length > 2) {
+            iframe = document.getElementById("JotFormIFrame-" + args[(args.length - 1)]);
+        } else {
+            iframe = document.getElementById("JotFormIFrame");
+        }
+        if (!iframe) {
+            return;
+        }
+        switch (args[0]) {
+            case "scrollIntoView":
+                iframe.scrollIntoView();
+                break;
+            case "setHeight":
+                iframe.style.height = args[1] + "px";
+                if (!isNaN(args[1]) && parseInt(iframe.style.minHeight) > parseInt(args[1])) {
+                    iframe.style.minHeight = args[1] + "px";
+                }
+                break;
+            case "collapseErrorPage":
+                if (iframe.clientHeight > window.innerHeight) {
+                    iframe.style.height = window.innerHeight + "px";
+                }
+                break;
+            case "reloadPage":
+                window.location.reload();
+                break;
+            case "loadScript":
+                if (!window.isPermitted(e.origin, ['jotform.com', 'jotform.pro'])) {
+                    break;
+                }
+                var src = args[1];
+                if (args.length > 3) {
+                    src = args[1] + ':' + args[2];
+                }
+                var script = document.createElement('script');
+                script.src = src;
+                script.type = 'text/javascript';
+                document.body.appendChild(script);
+                break;
+            case "exitFullscreen":
+                if (window.document.exitFullscreen) window.document.exitFullscreen(); else if (window.document.mozCancelFullScreen) window.document.mozCancelFullScreen(); else if (window.document.mozCancelFullscreen) window.document.mozCancelFullScreen(); else if (window.document.webkitExitFullscreen) window.document.webkitExitFullscreen(); else if (window.document.msExitFullscreen) window.document.msExitFullscreen();
+                break;
+        }
+        var isJotForm = (e.origin.indexOf("jotform") > -1) ? true : false;
+        if (isJotForm && "contentWindow" in iframe && "postMessage" in iframe.contentWindow) {
+            var urls = {"docurl": encodeURIComponent(document.URL), "referrer": encodeURIComponent(document.referrer)};
+            iframe.contentWindow.postMessage(JSON.stringify({"type": "urls", "value": urls}), "*");
+        }
+    };
+    window.isPermitted = function (originUrl, whitelisted_domains) {
+        var url = document.createElement('a');
+        url.href = originUrl;
+        var hostname = url.hostname;
+        var result = false;
+        if (typeof hostname !== 'undefined') {
+            whitelisted_domains.forEach(function (element) {
+                if (hostname.slice((-1 * element.length - 1)) === '.'.concat(element) || hostname === element) {
+                    result = true;
+                }
+            });
+            return result;
+        }
+    };
+    if (window.addEventListener) {
+        window.addEventListener("message", handleIFrameMessage, false);
+    } else if (window.attachEvent) {
+        window.attachEvent("onmessage", handleIFrameMessage);
+    } </script>
 
 
 {{--    Bootstrap 5.3 CDN--}}
