@@ -54,27 +54,27 @@
         @if (Route::has('login'))
             @auth
                 <a href="{{ url('/home') }}"
-                   class="fs-4 text-decoration-none text-dark-emphasis nav-buttons me-3">Dashboard</a>
+                   class="fs-4 text-decoration-none text-dark-emphasis nav-buttons me-4">Dashboard</a>
                 @if(auth()->user()->paid_service ==0 )
                     <a href="{{ url('/payment') }}"
-                       class="fs-4 text-decoration-none text-dark-emphasis nav-buttons">Buy Now</a>
+                       class="fs-4 text-decoration-none text-dark-emphasis nav-buttons me-4">Buy Now</a>
                 @endif
                 <a href="#faq_section"
-                   class="fs-4 text-decoration-none text-dark-emphasis me-3 nav-buttons fw-medium">FAQs</a>
+                   class="fs-4 text-decoration-none text-dark-emphasis me-4 nav-buttons ">FAQs</a>
                 <a href="https://form.jotform.com/232975253534663"
-                   class="fs-4 text-decoration-none text-dark-emphasis me-3 nav-buttons fw-medium">Get Free Book</a>
+                   class="fs-4 text-decoration-none text-dark-emphasis me-4 nav-buttons">Get Free Book</a>
             @else
                 <a href="{{ route('login') }}"
-                   class="fs-4 text-decoration-none text-dark-emphasis me-3 nav-buttons">Log in</a>
+                   class="fs-4 text-decoration-none text-dark-emphasis me-4 nav-buttons">Log in</a>
 
                 @if (Route::has('register'))
                     <a href="{{ route('register') }}"
-                       class="fs-4 text-decoration-none text-dark-emphasis nav-buttons me-3 ">Register</a>
+                       class="fs-4 text-decoration-none text-dark-emphasis nav-buttons me-4 ">Register</a>
                 @endif
                 <a href="#faq_section"
-                   class="fs-4 text-decoration-none text-dark-emphasis me-3 nav-buttons fw-medium">FAQs</a>
+                   class="fs-4 text-decoration-none text-dark-emphasis me-4 nav-buttons ">FAQs</a>
                 <a href="https://form.jotform.com/232975253534663"
-                   class="fs-4 text-decoration-none text-dark-emphasis me-3 nav-buttons fw-medium">Get Free Book</a>
+                   class="fs-4 text-decoration-none text-dark-emphasis me-4 nav-buttons">Get Free Book</a>
             @endauth
         @endif
     </div>
