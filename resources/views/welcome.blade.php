@@ -298,12 +298,13 @@
 
     <div class="container-fluid p-0 bg-white" id="free-book">
         <div class="container">
-            <iframe id="JotFormIFrame-230847032503650" class="" title="Download Your Free e-book"
-                    onload="window.parent.scrollTo(0,0)"
-                    allowtransparency="true" allowfullscreen="true" allow="geolocation; microphone; camera"
-                    src="https://form.jotform.com/230847032503650" frameborder="0"
-                    style="min-width:100%;max-width:100%;height:800px!important;border:none;"
-                    scrolling="no"></iframe>
+            <iframe id="JotFormIFrame-230847032503650" title="Download Your Free e-book"
+                    onload="window.parent.scrollTo(0,0)" allowtransparency="true" allowfullscreen="true"
+                    allow="geolocation; microphone; camera" src="https://form.jotform.com/230847032503650"
+                    frameborder="0" style="min-width:100%;max-width:100%;height:539px;border:none;"
+                    scrolling="no">
+
+            </iframe>
         </div>
     </div>
 </div>
